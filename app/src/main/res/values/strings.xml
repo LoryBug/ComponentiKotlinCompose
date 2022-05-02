@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ProvaComponenti</string>
+
+    //Login
+    <string name="password" translatable="false">Password</string>
+    <string name="login" translatable="false">Login</string>
+    <string name="username" translatable="false">Username</string>
+
+    //Moto
+    <string name="insurance" translatable="false">Assicurazione</string>
+    <string name="tax" translatable="false">Bollo</string>
+    <string name="displacement" translatable="false">Cilindrata</string>
+    <string name="brand" translatable="false">Marca</string>
+    <string name="kmTot" translatable="false">KmTot</string>
+    <string name="newMoto" translatable="false">Nuova Moto</string>
+    <string name="model" translatable="false">Modello</string>
+    <string name="typeMoto" translatable="false">Tipo</string>
+    <string name="pot" translatable="false">Potenza</string>
+    <string name="weight" translatable="false">Peso</string>
+</resources>
