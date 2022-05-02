@@ -1,7 +1,7 @@
 package com.example.provacomponenti.Model
 
 data class Motor(
-    val id: String? = null,
+    var id: String? = null,
     val brand: String? = null,
     val model: String? = null,
     val displacement: String? = null, //cilindrata
@@ -12,7 +12,7 @@ data class Motor(
     val insuranceExpire: Int? = null//scadenza assicurzione
 )
 
-val motors = listOf(     //mancano scadenze
+val motors = mutableListOf(     //mancano scadenze
     Motor(
         "#001", "Honda", "Dominator", "644cc", "Dual", 42.2f, 162.5f, ), //Dominator
     Motor(
@@ -33,4 +33,12 @@ fun toStringMotor(motor : Motor): String {
     var s : String = ""+ brand + "\n" + model + "\nCilindrata: "+ displacement +
             "\nCavalli: "+ hp + "\nPeso: " + kg + " Kg"+ "\nGenere: " + typeOfMoto
     return s
+}
+
+
+fun insertNewMoto(id: String?, brand: String?,
+model: String?, displacement: String?, typeOfMoto: String?,
+                  hp: Float?, kg: Float?,taxExpire: Int?, insuranceExpire: Int?){
+
+    motors.add(Motor(id, brand, model, displacement,typeOfMoto,hp,kg, taxExpire, insuranceExpire))
 }
