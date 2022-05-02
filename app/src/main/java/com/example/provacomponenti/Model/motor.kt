@@ -21,3 +21,16 @@ val motors = listOf(     //mancano scadenze
         "#003", "Ducati", "Panigale V4", "1103cc", "Carenata", 215.5f, 175.0f, ), //Panigale
 
 )
+
+fun toStringMotor(motor : Motor): String {
+    var id = motor.id
+    var brand = motor.brand
+    var model = motor.model
+    var displacement = motor.displacement
+    var typeOfMoto = motor.typeOfMoto
+    var hp = motor.hp
+    var kg = motor.kg
+    var s : String = ""+ brand + "\n" + model + "\nCilindrata: "+ displacement +
+            "\nCavalli: "+ hp + "\nPeso: " + kg + " Kg"+ "\nGenere: " + typeOfMoto
+    return s
+}

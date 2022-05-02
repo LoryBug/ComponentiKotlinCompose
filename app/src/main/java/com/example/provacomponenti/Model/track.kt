@@ -15,7 +15,7 @@ val tracks = listOf(
         km = 160.8f,
         description = "Uno dei passi più famosi di tutta la Romagna",
         typeOfTrack = "Stradale",
-        difficulty = "Medio"
+        difficulty = "Media"
     ),
     Track(
         id = "#002",
@@ -23,7 +23,7 @@ val tracks = listOf(
         km = 65.3f,
         description = "Sterrato immerso nella natura",
         typeOfTrack = "Sterrato",
-        difficulty = "Medio"
+        difficulty = "Media"
     ),
     Track(
         id = "#003",
@@ -31,7 +31,7 @@ val tracks = listOf(
         km = 77.6f,
         description = "Re dei tornanti",
         typeOfTrack = "Stradale",
-        difficulty = "Medio"
+        difficulty = "Media"
     ),
     Track(
         id = "#004",
@@ -39,6 +39,18 @@ val tracks = listOf(
         km = 257.5f,
         description = "Re dei tornanti",
         typeOfTrack = "Stradale",
-        difficulty = "Medio"
+        difficulty = "Media"
     )
 )
+fun toStringTrack(track: Track): String {
+    var id = track.id
+    var name = track.name
+    var km = track.km
+    var description = track.description
+    var typeOfTrack = track.typeOfTrack
+    var difficulty = track.difficulty
+
+    var s : String = ""+ name + "\n" + km + " Km" + "\n"+  description +
+                "\nTipo: "+ typeOfTrack + "\nDifficoltà: " + difficulty
+    return s
+}
