@@ -10,11 +10,13 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun TopBar(){
     TopAppBar(
         title = { Text("MotorTracks") },
+        elevation = 4.dp,
         navigationIcon = {
             IconButton(onClick = { /* doSomething() */ }) {
                 Icon(Icons.Filled.Menu, contentDescription = null)

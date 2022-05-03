@@ -21,14 +21,15 @@ fun BottomNavigationBar() {
     )
     BottomNavigation(
         backgroundColor = MaterialTheme.colors.primary,
-        contentColor = Color.White
+        contentColor = Color.White,
+        elevation = 4.dp
     ) {
         items.forEach { item ->
             BottomNavigationItem(
                 icon = { Icon(painterResource(id = item.icon), contentDescription = item.title, modifier = Modifier.size(25.dp)) },
                 label = { Text(text = item.title) },
-                selectedContentColor = Color.White,
-                unselectedContentColor = Color.White.copy(0.4f),
+                selectedContentColor = MaterialTheme.colors.surface,
+                unselectedContentColor =  MaterialTheme.colors.surface.copy(0.8f),
                 alwaysShowLabel = true,
                 selected = false,
                 onClick = {
