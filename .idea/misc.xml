@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/UNIVERSITA'/Terzo Anno/2.2_Applicazioni Mobile/EsempiProgetti/prova00/app/src/main/res/drawable/home.xml" value="0.1395" />
+        <entry key="..\:/UNIVERSITA'/Terzo Anno/2.2_Applicazioni Mobile/EsempiProgetti/prova00/app/src/main/res/drawable/ic_nearPin.xml" value="0.1395" />
+        <entry key="..\:/UNIVERSITA'/Terzo Anno/2.2_Applicazioni Mobile/EsempiProgetti/prova00/app/src/main/res/drawable/ic_pin.xml" value="0.133" />
+        <entry key="..\:/UNIVERSITA'/Terzo Anno/2.2_Applicazioni Mobile/EsempiProgetti/prova00/app/src/main/res/drawable/ic_sports_motorsports.xml" value="0.1395" />
+        <entry key="..\:/UNIVERSITA'/Terzo Anno/2.2_Applicazioni Mobile/EsempiProgetti/prova00/app/src/main/res/drawable/ic_track.xml" value="0.1395" />
+        <entry key="..\:/UNIVERSITA'/Terzo Anno/2.2_Applicazioni Mobile/EsempiProgetti/prova00/app/src/main/res/drawable/ic_two_wheeler.xml" value="0.1395" />
+        <entry key="..\:/UNIVERSITA'/Terzo Anno/2.2_Applicazioni Mobile/EsempiProgetti/prova00/app/src/main/res/drawable/sports_motorsports-48px.xml" value="0.1395" />
+        <entry key="..\:/UNIVERSITA'/Terzo Anno/2.2_Applicazioni Mobile/EsempiProgetti/prova00/app/src/main/res/drawable/two_wheeler-48px.xml" value="0.1395" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

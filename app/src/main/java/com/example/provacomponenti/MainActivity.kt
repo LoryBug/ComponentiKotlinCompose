@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.provacomponenti.Home.HomeScreen
 import com.example.provacomponenti.Model.motors
 import com.example.provacomponenti.Model.tracks
 import com.example.provacomponenti.ui.theme.ProvaComponentiTheme
@@ -22,7 +23,8 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 //CardNewMoto()
                 //Greetings(motors)
-                TrackCard(tracks)
+                //TrackCard(tracks)
+                HomeScreen()
 
             }
         }

@@ -1,0 +1,35 @@
+package com.example.provacomponenti.Home.TopBar
+
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
+
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+
+@Composable
+fun TopBar(){
+    TopAppBar(
+        title = { Text("MotorTracks") },
+        navigationIcon = {
+            IconButton(onClick = { /* doSomething() */ }) {
+                Icon(Icons.Filled.Menu, contentDescription = null)
+            }
+        },
+        actions = {
+            // RowScope here, so these icons will be placed horizontally
+            IconButton(onClick = { /* doSomething() */ }) {
+                Icon(Icons.Filled.Favorite, contentDescription = "Localized description")
+            }
+        })
+}
+@Preview
+@Composable
+fun prevTop(){
+    TopBar()
+}
+
