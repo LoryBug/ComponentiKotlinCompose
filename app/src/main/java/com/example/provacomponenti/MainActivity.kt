@@ -3,16 +3,15 @@ package com.example.provacomponenti
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.provacomponenti.Home.HomeScreen
-import com.example.provacomponenti.Model.motors
-import com.example.provacomponenti.Model.tracks
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
+import com.example.provacomponenti.Home.TopBar.TopBar
+import com.example.provacomponenti.Motor.MotorScreen
 import com.example.provacomponenti.ui.theme.ProvaComponentiTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,18 +23,22 @@ class MainActivity : ComponentActivity() {
                 //CardNewMoto()
                 //Greetings(motors)
                 //TrackCard(tracks)
-                HomeScreen()
+                //HomeScreen()
+                //MotorScreen()
+                MainScreen()
 
             }
         }
     }
 }
-
-
-@Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    ProvaComponentiTheme {
-
+fun MainScreen() {
+    val navController = rememberNavController()
+    Scaffold(
+        topBar = { TopBar() },
+        bottomBar = { BottomNavigationBar(navController) }
+    ) {
+        Navigation(navController as NavHostController)
     }
 }
+

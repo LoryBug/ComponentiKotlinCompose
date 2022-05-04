@@ -20,7 +20,7 @@ import com.example.provacomponenti.Model.motors
 import com.example.provacomponenti.Model.toStringMotor
 
 @Composable
-fun Greetings(motors: List<Motor> = listOf()) {
+fun MotorsCard(motors: List<Motor> = listOf()) {
     LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
         for (motor in motors) {
             item { CardPos(name = toStringMotor(motor)) }
