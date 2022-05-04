@@ -1,3 +1,4 @@
+package com.example.provacomponenti.Track.TopBarTrack
 
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -13,9 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TopBarMotor(){
+fun TopBarTrack(){
     TopAppBar(
-        title = { Text("Moto") },
+        title = { Text("Tracciati") },
         elevation = 4.dp,
         navigationIcon = {
             IconButton(onClick = { /* doSomething() */ }) {
@@ -29,9 +30,3 @@ fun TopBarMotor(){
             }
         }*/)
 }
-@Preview
-@Composable
-private fun prevTopMotor(){
-    TopBarMotor()
-}
-

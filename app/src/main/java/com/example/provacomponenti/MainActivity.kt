@@ -35,10 +35,9 @@ class MainActivity : ComponentActivity() {
 fun MainScreen() {
     val navController = rememberNavController()
     Scaffold(
-        topBar = { TopBar() },
         bottomBar = { BottomNavigationBar(navController) }
     ) {
-        Navigation(navController as NavHostController)
+        Navigation(navController = navController)
     }
 }
 

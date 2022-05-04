@@ -32,7 +32,7 @@ fun HomeScreen() {
         content = {
             Surface() {
                 Column() {
-                     TrackCard(tracks)
+                     Text(text = "ciao")
                 }
             }
         }

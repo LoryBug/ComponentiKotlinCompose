@@ -6,13 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.example.provacomponenti.R
+
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -40,9 +38,9 @@ fun BottomNavigationBar(navController: NavController) {
                 },
                 label = { Text(text = item.title) },
                 selectedContentColor = MaterialTheme.colors.surface,
-                unselectedContentColor = MaterialTheme.colors.surface.copy(0.8f),
+                unselectedContentColor = MaterialTheme.colors.surface.copy(0.6f),
                 alwaysShowLabel = true,
-                selected = false,
+                selected = currentRoute == item.route,
                 onClick = {
                     navController.navigate(item.route) {
                         // Pop up to the start destination of the graph to
