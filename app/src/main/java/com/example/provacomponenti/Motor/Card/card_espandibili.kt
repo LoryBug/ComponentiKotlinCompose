@@ -23,8 +23,9 @@ import com.example.provacomponenti.Model.toStringMotor
 fun MotorsCard(motors: List<Motor> = listOf()) {
     LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
         for (motor in motors) {
-            item { CardPos(name = toStringMotor(motor)) }
-            //item { motor.model?.let { CardPos(name = it) } }
+            //item { CardPos(name = toStringMotor(motor)) }
+            item { motor.model?.let { CardPos(name = it) } }
+
         }
     }
 }

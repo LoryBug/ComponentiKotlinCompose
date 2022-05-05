@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import com.example.provacomponenti.Home.BottomBar.NavigationItem
 import com.example.provacomponenti.Home.HomeScreen
 import com.example.provacomponenti.Motor.MotorScreen
+import com.example.provacomponenti.Profile.ProfileScreen
 import com.example.provacomponenti.Track.TrackScreen
 
 
