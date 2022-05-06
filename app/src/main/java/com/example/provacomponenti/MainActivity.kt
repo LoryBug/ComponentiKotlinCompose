@@ -6,14 +6,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.FabPosition
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.provacomponenti.CommonItem.FloatingActionButtons
 import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
-import com.example.provacomponenti.Home.TopBar.TopBar
-import com.example.provacomponenti.Motor.MotorScreen
+import com.example.provacomponenti.Navigation.Navigation
 import com.example.provacomponenti.ui.theme.ProvaComponentiTheme
 
 class MainActivity : ComponentActivity() {

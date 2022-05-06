@@ -24,7 +24,6 @@ import com.example.provacomponenti.R
 @Composable
 fun HomeScreen() {
     val navController = rememberNavController()
-    val fabNav = "maps"
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
         topBar = { TopBar() },

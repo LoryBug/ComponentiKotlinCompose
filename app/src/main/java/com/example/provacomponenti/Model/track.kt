@@ -1,5 +1,7 @@
 package com.example.provacomponenti.Model
 
+import android.graphics.Bitmap
+
 data class Track(
     val id: String? = null,
     val name: String? = null,
@@ -7,6 +9,7 @@ data class Track(
     val description: String? = null,
     val typeOfTrack: String? = null, // sterrato, strada, etc
     val difficulty: String? = null, //facile medio difficile
+    val image: Bitmap? = null // immagine da caricare con api Unsplash
 )
 val tracks = listOf(
     Track(

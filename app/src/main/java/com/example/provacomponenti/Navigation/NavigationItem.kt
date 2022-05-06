@@ -1,4 +1,6 @@
-package com.example.provacomponenti
+package com.example.provacomponenti.Navigation
+
+import com.example.provacomponenti.R
 
 
 sealed class NavigationItem(var route: String, var icon: Int, var title: String) {
