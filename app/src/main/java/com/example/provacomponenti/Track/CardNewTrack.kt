@@ -1,11 +1,10 @@
-package com.example.provacomponenti
+package com.example.provacomponenti.Track
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
@@ -16,40 +15,28 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.provacomponenti.Model.*
-import com.example.provacomponenti.ui.theme.ProvaComponentiTheme
+
+
 
 @Composable
-fun TrackCard(tracks: List<Track> = listOf()) {
-    LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
-        for (track in tracks) {
-            item { CardPosTracks(name = toStringTrack(track)) }
-        }
-    }
-}
-
-// -------------------------------
-@Composable
-fun CardPosTracks(name: String) {
+fun CardNewTrack(){
     Card(
         backgroundColor = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-        ExpCard(name)
+        ExpCardNewTrack()
     }
 }
 
-//---------------------------------
 @Composable
-private fun ExpCard(name: String) {
-
+private fun ExpCardNewTrack(){
     var expanded by rememberSaveable { mutableStateOf(false) }
+    var id by remember { mutableStateOf(TextFieldValue("")) }
 
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp
-        )
+    )
     Row(modifier = Modifier.padding(24.dp)
         .animateContentSize(
             animationSpec = spring(
@@ -63,22 +50,45 @@ private fun ExpCard(name: String) {
                 .padding(bottom = extraPadding.coerceAtLeast(0.dp))
         ) {
             Text(
-                text = name,
+                text = "Nuova traccia",
                 style = MaterialTheme.typography.subtitle1,
                 fontWeight = FontWeight.SemiBold
             )
             if (expanded) {
+                Text(
+                    "Ciao",
 
+                )
+                Spacer(modifier = Modifier.height(12.dp))
+                OutlinedTextField(
+                    value = id,
+                    maxLines = 1,
+                    modifier = Modifier.fillMaxWidth(0.8f),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Text,
+                        imeAction = ImeAction.Next
+                    ),
+                    label = { Text("Id", color = Color.LightGray) },
+                    placeholder = { Text(text = "Id") },
+                    onValueChange = {
+                        id = it
+                    },
+
+                )
+                Spacer(modifier = Modifier.height(12.dp))
+                OutlinedButton(
+                    onClick = { }
+                ) {
+                    Text("Aggiungi")
+                }
+                Spacer(modifier = Modifier.height(12.dp))
 
             }
         }
         OutlinedButton(
             onClick = { expanded = !expanded }
         ) {
-            Text(if (expanded) "Show less" else "Show more")
+            Text(if (expanded) "-" else "+")
         }
     }
 }
-
-
-
