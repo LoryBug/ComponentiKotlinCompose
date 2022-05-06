@@ -10,6 +10,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.provacomponenti.NavigationItem
 
 
 @Composable
@@ -18,7 +19,7 @@ fun BottomNavigationBar(navController: NavController) {
         NavigationItem.Home,
         NavigationItem.MyTracks,
         NavigationItem.MyMotors,
-        NavigationItem.Profile
+        NavigationItem.Profile,
     )
     BottomNavigation(
         backgroundColor = MaterialTheme.colors.primary,

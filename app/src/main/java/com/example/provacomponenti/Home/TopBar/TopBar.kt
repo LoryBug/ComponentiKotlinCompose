@@ -29,9 +29,4 @@ fun TopBar(){
             }
         })
 }
-@Preview
-@Composable
-fun prevTop(){
-    TopBar()
-}
 

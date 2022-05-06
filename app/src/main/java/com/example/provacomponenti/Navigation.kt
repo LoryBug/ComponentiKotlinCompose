@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.provacomponenti.Home.BottomBar.NavigationItem
 import com.example.provacomponenti.Home.HomeScreen
+import com.example.provacomponenti.Maps.MapsScreen
 import com.example.provacomponenti.Motor.MotorScreen
 import com.example.provacomponenti.Profile.ProfileScreen
 import com.example.provacomponenti.Track.TrackScreen
@@ -25,6 +25,9 @@ fun Navigation(navController: NavHostController) {
         }
         composable(NavigationItem.Profile.route) {
             ProfileScreen()
+        }
+        composable(NavigationItem.Maps.route){
+            MapsScreen()
         }
     }
 }

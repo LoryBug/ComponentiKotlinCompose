@@ -1,34 +1,34 @@
 package com.example.provacomponenti.CommonItem
 
-import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.FloatingActionButtonDefaults
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.provacomponenti.R
 
 @Composable
-fun FloatingActionButton(
-    onClick: (() -> Unit)?,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    shape: Shape = MaterialTheme.shapes.small.copy(CornerSize(percent = 50)),
-    backgroundColor: Color = MaterialTheme.colors.secondary,
-    contentColor: Color = contentColorFor(backgroundColor),
-    elevation: FloatingActionButtonElevation = FloatingActionButtonDefaults.elevation(),
-    content: (@Composable () -> Unit)?
-){
-    Icon(Icons.Filled.Favorite, contentDescription = "Localized description")
-}
-
-@Preview
-@Composable
-fun precFAB(){
-    FloatingActionButton(onClick = { /*TODO*/ }) {
-        
+fun FloatingActionButtons(navController: NavController){
+    val fabNav = "maps"
+    FloatingActionButton(
+        onClick = { navController.navigate(fabNav) {
+        navController.graph.startDestinationRoute?.let { route ->
+            popUpTo(route) {
+                saveState = true
+            }
+        }
+        // Avoid multiple copies of the same destination when
+        // reselecting the same item
+        launchSingleTop = true
+        // Restore state when reselecting a previously selected item
+        restoreState = true
+    }},
+        backgroundColor = MaterialTheme.colors.secondary,
+        elevation = FloatingActionButtonDefaults.elevation(8.dp)
+    ) {
+        Icon(painterResource(id = R.drawable.ic_pin), "pin")
     }
 }

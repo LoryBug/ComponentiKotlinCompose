@@ -18,6 +18,7 @@ private val LightColorPalette = lightColors(
     primary = Blue_Honda,
     primaryVariant = Color.Blue,
     secondary = Blue_Honda,
+    background = Color.LightGray
 
 
 
