@@ -5,22 +5,15 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.provacomponenti.Model.*
-import com.example.provacomponenti.ui.theme.ProvaComponentiTheme
 
+/*
 @Composable
 fun TrackCard(tracks: List<Track> = listOf()) {
     LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
@@ -28,29 +21,30 @@ fun TrackCard(tracks: List<Track> = listOf()) {
             item { CardPosTracks(name = toStringTrack(track)) }
         }
     }
-}
+}*/
 
 // -------------------------------
 @Composable
-fun CardPosTracks(name: String) {
+fun CardPosTracks(track: Track) {
     Card(
         backgroundColor = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-        ExpCard(name)
+        ExpCardTrack(track)
     }
 }
 
 //---------------------------------
 @Composable
-private fun ExpCard(name: String) {
+private fun ExpCardTrack(track: Track) {
 
     var expanded by rememberSaveable { mutableStateOf(false) }
 
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp
         )
-    Row(modifier = Modifier.padding(24.dp)
+    Row(modifier = Modifier
+        .padding(24.dp)
         .animateContentSize(
             animationSpec = spring(
                 dampingRatio = Spring.DampingRatioMediumBouncy,
@@ -62,13 +56,20 @@ private fun ExpCard(name: String) {
                 .weight(1f)
                 .padding(bottom = extraPadding.coerceAtLeast(0.dp))
         ) {
-            Text(
-                text = name,
-                style = MaterialTheme.typography.subtitle1,
-                fontWeight = FontWeight.SemiBold
-            )
+            track.name?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.subtitle1,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
             if (expanded) {
-
+                Column() {
+                    track.km?.let { Text("$it Km") }
+                    track.description?.let { Text(it) }
+                    track.typeOfTrack?.let { Text("Tipo di traccia: $it")}
+                    track.difficulty?.let { Text("Difficoltà: $it")}
+                }
 
             }
         }
@@ -79,6 +80,7 @@ private fun ExpCard(name: String) {
         }
     }
 }
+
 
 
 

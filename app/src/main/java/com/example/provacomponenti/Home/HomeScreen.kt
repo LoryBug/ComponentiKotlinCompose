@@ -20,7 +20,6 @@ import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
 import com.example.provacomponenti.Home.TopBar.TopBar
 import com.example.provacomponenti.Model.tracks
 import com.example.provacomponenti.R
-import com.example.provacomponenti.TrackCard
 
 @Composable
 fun HomeScreen() {

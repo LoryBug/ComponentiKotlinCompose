@@ -19,8 +19,8 @@ import com.example.provacomponenti.Model.Motor
 import com.example.provacomponenti.Model.motors
 import com.example.provacomponenti.Model.toStringMotor
 
-@Composable
-fun MotorsCard(motors: List<Motor> = listOf()) {
+
+/*fun MotorsCard(motors: List<Motor> = listOf()) {
     LazyColumn(modifier = Modifier.padding(vertical = 4.dp)) {
         for (motor in motors) {
             //item { CardPos(name = toStringMotor(motor)) }
@@ -28,20 +28,20 @@ fun MotorsCard(motors: List<Motor> = listOf()) {
 
         }
     }
-}
+}*/
 //---------------------------------Creazione delle card----------------------------------------------//
 @Composable
-private fun CardPos(name: String) {
+fun CardPosMotor(motor: Motor) {
     Card(
         backgroundColor = MaterialTheme.colors.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-        ExpCard(name)
+        ExpCardMotor(motor)
     }
 }
 //----------------------------------Contenuto card espandibili---------------------------------------//
 @Composable
-private fun ExpCard(name: String) {
+private fun ExpCardMotor(motor: Motor) {
 
     var expanded by rememberSaveable { mutableStateOf(false) }
 
@@ -64,12 +64,25 @@ private fun ExpCard(name: String) {
                 .padding(bottom = extraPadding.coerceAtLeast(0.dp))
 
         ) {
-            Text(
-                text = name,
-                style = MaterialTheme.typography.subtitle1,
-                fontWeight = FontWeight.SemiBold
-            )
+            motor.model?.let {
+                Text(
+                    text = it,
+                    style = MaterialTheme.typography.subtitle1,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
             if (expanded) {
+                Column {
+                    motor.brand?.let { Text("$it") }
+                    motor.displacement?.let { Text("Cilindrata: $it") }
+                    motor.hp?.let { Text("$it Hp") }
+                    motor.kg?.let { Text("$it Kg") }
+                    motor.typeOfMoto?.let { Text("$it") }
+                    /*motor.typeOfMoto?.let { Text("$it") }
+                    motor.typeOfMoto?.let { Text("$it") }*/
+
+
+                }
 
             }
         }
