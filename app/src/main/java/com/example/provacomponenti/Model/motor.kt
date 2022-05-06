@@ -1,5 +1,6 @@
 package com.example.provacomponenti.Model
 
+
 data class Motor(
     var id: String? = null,
     val brand: String? = null,

@@ -1,0 +1,35 @@
+[
+  {
+    "brand": "Honda",
+    "model": "Dominator",
+    "displacement": "650cc",
+    "typeOfMoto": "Dual",
+    "hp": "42.2",
+    "kg": "162.5",
+    "taxExpire": "",
+    "insuranceExpire": "",
+    "imageURL": ""
+  },
+  {
+    "brand": "Yamaha",
+    "model": "Teneré",
+    "displacement": "700cc",
+    "typeOfMoto": "Dual",
+    "hp": "74.3",
+    "kg": "202.1",
+    "taxExpire": "",
+    "insuranceExpire": "",
+    "imageURL": ""
+  },
+  {
+    "brand": "Ducati",
+    "model": "Panigale V4",
+    "displacement": "1100cc",
+    "typeOfMoto": "Carenata",
+    "hp": "215.5",
+    "kg": "175.0",
+    "taxExpire": "",
+    "insuranceExpire": "",
+    "imageURL": ""
+  }
+]
