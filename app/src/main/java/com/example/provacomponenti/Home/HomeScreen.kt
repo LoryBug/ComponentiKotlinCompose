@@ -29,28 +29,6 @@ fun HomeScreen() {
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
         topBar = { TopBar() },
-       /* floatingActionButton = {/*
-            FloatingActionButton(
-                onClick = { navController.navigate(fabNav) {
-                    navController.graph.startDestinationRoute?.let { route ->
-                        popUpTo(route) {
-                            saveState = true
-                        }
-                    }
-                    // Avoid multiple copies of the same destination when
-                    // reselecting the same item
-                    launchSingleTop = true
-                    // Restore state when reselecting a previously selected item
-                    restoreState = true
-                }},
-                backgroundColor = MaterialTheme.colors.secondary,
-                elevation = FloatingActionButtonDefaults.elevation(8.dp)
-            ) {
-                Icon(painterResource(id = R.drawable.ic_pin), "pin")
-            }*/
-                               FloatingActionButtons(navController)
-        },*/
-
         content = {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,

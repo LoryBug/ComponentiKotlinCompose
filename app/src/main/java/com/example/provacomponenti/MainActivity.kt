@@ -3,6 +3,7 @@ package com.example.provacomponenti
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.material.FabPosition
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,8 +38,8 @@ fun MainScreen() {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
-        floatingActionButton = { FloatingActionButtons(navController)}
-
+        floatingActionButton = { FloatingActionButtons(navController)},
+        floatingActionButtonPosition = FabPosition.Center
     ) {
         Navigation(navController = navController)
     }
