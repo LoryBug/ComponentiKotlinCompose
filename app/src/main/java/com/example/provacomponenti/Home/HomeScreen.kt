@@ -29,7 +29,7 @@ fun HomeScreen() {
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
         topBar = { TopBar() },
-        floatingActionButton = {/*
+       /* floatingActionButton = {/*
             FloatingActionButton(
                 onClick = { navController.navigate(fabNav) {
                     navController.graph.startDestinationRoute?.let { route ->
@@ -49,8 +49,8 @@ fun HomeScreen() {
                 Icon(painterResource(id = R.drawable.ic_pin), "pin")
             }*/
                                FloatingActionButtons(navController)
-        },
-        floatingActionButtonPosition = FabPosition.Center,
+        },*/
+
         content = {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
