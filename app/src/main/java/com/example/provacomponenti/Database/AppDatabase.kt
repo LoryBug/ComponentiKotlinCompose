@@ -14,7 +14,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun motorDao(): MotorDAO
 
-    abstract fun trackDao(): TracciatiDAO
+    abstract fun trackDao(): TrackDAO
 
     companion object {
 

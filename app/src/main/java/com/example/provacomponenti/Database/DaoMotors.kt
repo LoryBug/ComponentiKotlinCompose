@@ -15,7 +15,7 @@ interface MotorDAO{
     suspend fun insertMoto(motor: Motor)
 
     @Query("SELECT * FROM Motor")
-     fun getMotors() : MutableLiveData<List<Motor>>
+    fun getMotors() : MutableLiveData<List<Motor>>
 
     @Query("SELECT * FROM Motor ORDER BY insuranceExpire DESC LIMIT(1)")
     suspend fun getExpiringInsMoto() : Motor
