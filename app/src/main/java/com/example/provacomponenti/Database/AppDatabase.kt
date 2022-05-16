@@ -4,44 +4,56 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 
 
-@Database(entities = [Moto::class, Tracciati::class], version = 1, exportSchema = false)
+@Database(entities = [Motor::class, Track::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun motorDao(): MotorDAO
-    abstract fun trackDao(): TracciatiDAO
 
+    abstract fun motorDao(): MotorDAO
+
+    abstract fun trackDao(): TracciatiDAO
 
     companion object {
 
         // For Singleton instantiation
-        @Volatile private var instance: AppDatabase? = null
+        @Volatile
+        private var INSTANCE: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {
-            return instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it }
+            // if the INSTANCE is not null, then return it,
+            // if it is, then create the database
+            if (INSTANCE == null) {
+                synchronized(this) {
+                    // Pass the database to the INSTANCE
+                    INSTANCE = buildDatabase(context)
+                }
             }
+            // Return database.
+            return INSTANCE!!
         }
 
-        // Create and pre-populate the database. See this article for more details:
-        // https://medium.com/google-developers/7-pro-tips-for-room-fbadea4bfbd1#4785
-        /*private fun buildDatabase(context: Context): AppDatabase {
-            return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
-                .addCallback(
-                    object : RoomDatabase.Callback() {
-                        override fun onCreate(db: SupportSQLiteDatabase) {
-                            super.onCreate(db)
-                            val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>()
-                                .setInputData(workDataOf(KEY_FILENAME to PLANT_DATA_FILENAME))
-                                .build()
-                            WorkManager.getInstance(context).enqueue(request)
-                        }
-                    }
-                )
+        private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                // The following query will add a new column called lastUpdate to the notes database
+                database.execSQL("ALTER TABLE notes ADD COLUMN lastUpdate INTEGER NOT NULL DEFAULT 0")
+            }
+        }
+        private fun buildDatabase(context: Context): AppDatabase {
+            return Room.databaseBuilder(
+                context.applicationContext,
+                AppDatabase::class.java,
+                "notes_database"
+            )
+                //.addMigrations(MIGRATION_1_2)
+                .addCallback(StartingFiles(context))
                 .build()
-        }*/
+        }
+
+    }
+
 
 
 }

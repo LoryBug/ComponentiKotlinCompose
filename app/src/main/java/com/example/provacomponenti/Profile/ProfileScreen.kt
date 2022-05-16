@@ -11,7 +11,7 @@ import com.example.provacomponenti.CommonItem.TopBarSec
 fun ProfileScreen() {
     Scaffold(topBar = { TopBarSec("Profilo") }) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            CardNewMoto()
+
         }
 
         

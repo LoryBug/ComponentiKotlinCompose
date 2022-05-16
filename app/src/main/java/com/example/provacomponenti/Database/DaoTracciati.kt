@@ -9,12 +9,12 @@ import androidx.room.Query
 interface TracciatiDAO{
 
     @Insert(onConflict = OnConflictStrategy.IGNORE) //  INSERIMENTO TRACCIATO
-    suspend fun insertTrack(tracciati: Tracciati)
+    suspend fun insertTrack(tracciati: Track)
 
-    @Query("SELECT * FROM tracciati")
-    fun getTracciati() : List<Tracciati>
+    @Query("SELECT * FROM Track")
+    fun getTracciati() : List<Track>
 
-    @Query("SELECT * FROM tracciati WHERE km<75")
-    fun getShortTrack() : List<Tracciati>
+    @Query("SELECT * FROM Track WHERE km<75")
+    fun getShortTrack() : List<Track>
 
 }

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "",
+    "name": "Passo del Muraglione",
+    "km": "160",
+    "description": "Uno dei passi più famosi di tutta la Romagna",
+    "typeOfTrack": "Stradale",
+    "difficulty": "Media",
+    "image": ""
+  },
+  {
+    "id": "",
+    "name": "Monte della Birra",
+    "km": "65",
+    "description": "Sterrato immerso nella natura",
+    "typeOfTrack": "Sterrato",
+    "difficulty": "Media",
+    "image": ""
+  },
+  {
+    "id": "",
+    "name": "Le 100 Forche",
+    "km": "97",
+    "description": "Da Predappio a Rocca S.Casciano",
+    "typeOfTrack": "Stradale",
+    "difficulty": "Facile",
+    "image": ""
+  }
+
+]
