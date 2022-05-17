@@ -16,10 +16,10 @@ import com.example.provacomponenti.Navigation.NavigationItem
 @Composable
 fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
-        NavigationItem.Home,
+
         NavigationItem.MyTracks,
+        NavigationItem.Home,
         NavigationItem.MyMotors,
-        NavigationItem.Profile,
     )
     BottomNavigation(
         backgroundColor = MaterialTheme.colors.primary,

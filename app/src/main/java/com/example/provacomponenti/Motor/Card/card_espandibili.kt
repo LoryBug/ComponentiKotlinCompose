@@ -15,9 +15,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.provacomponenti.Model.Motor
-import com.example.provacomponenti.Model.motors
-import com.example.provacomponenti.Model.toStringMotor
+import com.example.provacomponenti.Database.Motor
 
 
 /*fun MotorsCard(motors: List<Motor> = listOf()) {

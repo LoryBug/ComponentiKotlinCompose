@@ -9,8 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.provacomponenti.CardPosTracks
 import com.example.provacomponenti.CommonItem.TopBarSec
-import com.example.provacomponenti.Model.toStringTrack
-import com.example.provacomponenti.Model.tracks
+
 
 
 @Composable
@@ -21,10 +20,10 @@ fun TrackScreen(){
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 56.dp)){
-            for(track in tracks) {
+            /*for(track in tracks) {
                 item { track.name?.let { CardPosTracks(track) } }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
-            }
+            }*/
             item { CardNewTrack() }
             item { Spacer(modifier = Modifier.height(6.dp)) }
         }

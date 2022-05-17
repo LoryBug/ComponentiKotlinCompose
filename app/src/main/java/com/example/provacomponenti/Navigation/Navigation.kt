@@ -23,9 +23,6 @@ fun Navigation(navController: NavHostController) {
         composable(NavigationItem.MyTracks.route) {
             TrackScreen()
         }
-        composable(NavigationItem.Profile.route) {
-            ProfileScreen()
-        }
         composable(NavigationItem.Maps.route){
             MapsScreen()
         }

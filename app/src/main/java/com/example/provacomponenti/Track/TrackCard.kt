@@ -11,7 +11,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.provacomponenti.Model.*
+import com.example.provacomponenti.Database.Track
+
 
 /*
 @Composable

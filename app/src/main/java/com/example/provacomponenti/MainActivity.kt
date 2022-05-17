@@ -16,6 +16,7 @@ import com.example.provacomponenti.Database.Motor
 import com.example.provacomponenti.Database.Track
 import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
 import com.example.provacomponenti.Navigation.Navigation
+import com.example.provacomponenti.Profile.ProfileScreen
 import com.example.provacomponenti.ui.theme.ProvaComponentiTheme
 
 class MainActivity : ComponentActivity() {
@@ -29,20 +30,21 @@ class MainActivity : ComponentActivity() {
                 //TrackCard(tracks)
                 //HomeScreen()
                 //MotorScreen()
-                ScreenSetup()
-
+               // ScreenSetup()
+            MainScreen( )
             }
         }
     }
 }
 
 @Composable
-fun MainScreen(
+fun MainScreen(/*
     allMotor: List<Motor>,
     allTrack: List<Track>,
-    viewModel: MainViewModel
+    viewModel: MainViewModel*/
 ) {
     val navController = rememberNavController()
+
 
 
 
@@ -55,7 +57,7 @@ fun MainScreen(
         Navigation(navController = navController)
     }
 }
-
+/*
 @Composable
 fun ScreenSetup(
     viewModel: MainViewModel
@@ -70,4 +72,4 @@ fun ScreenSetup(
         viewModel = viewModel
     )
 }
-
+*/

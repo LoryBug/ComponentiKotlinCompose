@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.example.provacomponenti.Model.insertNewMoto
 import java.util.*
 
 
@@ -254,7 +253,6 @@ fun CardNewMoto() {
 
 
         }
-        //insertNewMoto(id.text, marca.text,modello.text, cilindrata.text, typoOfMoto.text,kg.text,mDateTax, mDateInsurance)
 
     }
 
