@@ -56,7 +56,7 @@ private fun ExpCardNewTrack(){
             )
             if (expanded) {
                 Text(
-                    "Ciao",
+                    "Inserire nuova traccia",
 
                 )
                 Spacer(modifier = Modifier.height(12.dp))

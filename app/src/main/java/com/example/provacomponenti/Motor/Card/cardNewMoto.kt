@@ -1,30 +1,42 @@
-package com.example.provacomponenti
+package com.example.provacomponenti.Motor.Card
 
 import android.app.DatePickerDialog
 import android.widget.DatePicker
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import java.util.*
 
 
-@OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun CardNewMoto() {
+fun CardAddMoto() {
+    Card(
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
+        elevation = 4.dp
+    ) {
+        AddMoto()
+    }
+}
+
+@Composable
+fun AddMoto() {
     var id by remember { mutableStateOf(TextFieldValue("")) }
     var marca by remember { mutableStateOf(TextFieldValue("")) }
     var modello by remember { mutableStateOf(TextFieldValue("")) }
@@ -93,26 +105,32 @@ fun CardNewMoto() {
         }, mYearTax, mMonthTax, mDayTax
     )
     //------------------------------------------------//
+    var expanded by rememberSaveable { (mutableStateOf(false)) }
+    val extraPadding by animateDpAsState(
+        if (expanded) 48.dp else 0.dp
+    )
 
-
-    Card(
-        elevation = 6.dp,
-        shape = MaterialTheme.shapes.small,
-        backgroundColor = MaterialTheme.colors.background,
+    Column(
         modifier = Modifier
-            .fillMaxWidth(0.8f),
-        //on click si espande e compare tutta la lista di info
+            .fillMaxWidth()
+            .padding(bottom = extraPadding.coerceAtLeast(0.dp))
+            .animateContentSize(
+                animationSpec = spring(
+                    dampingRatio = Spring.DampingRatioMediumBouncy,
+                    stiffness = Spring.StiffnessLow
+                )
+            ),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                "Nuova Moto",
-                style = MaterialTheme.typography.h5,
-                fontWeight = FontWeight.SemiBold
-            )
-            Spacer(modifier = Modifier.height(12.dp))
+        Spacer(modifier = Modifier.height(12.dp))
+        Text(
+            "Nuova Moto",
+            style = MaterialTheme.typography.h5,
+            fontWeight = FontWeight.SemiBold
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+        if (expanded) {
+
             OutlinedTextField(
                 value = id,
                 maxLines = 1,
@@ -191,35 +209,35 @@ fun CardNewMoto() {
             )
 
             /*OutlinedTextField(
-                value = hp,
-                maxLines = 1,
-                modifier = Modifier.fillMaxWidth(0.8f),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Next
-                ),
-                label = { Text(Resources.getSystem().getString(R.string.pot), color = Color.LightGray) },
-                placeholder = { Text(Resources.getSystem().getString(R.string.typeMoto)) },
-                onValueChange = {
-                    cilindrata = it
-                },
-                //interactionSource = usernameInteractionState,
-            )
-            OutlinedTextField(
-                value = kg,
-                maxLines = 1,
-                modifier = Modifier.fillMaxWidth(0.8f),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Next
-                ),
-                label = { Text(Resources.getSystem().getString(R.string.weight), color = Color.LightGray) },
-                placeholder = { Text(Resources.getSystem().getString(R.string.typeMoto)) },
-                onValueChange = {
-                    kg = it
-                },
-                //interactionSource = usernameInteractionState,
-            )*/
+            value = hp,
+            maxLines = 1,
+            modifier = Modifier.fillMaxWidth(0.8f),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text,
+                imeAction = ImeAction.Next
+            ),
+            label = { Text(Resources.getSystem().getString(R.string.pot), color = Color.LightGray) },
+            placeholder = { Text(Resources.getSystem().getString(R.string.typeMoto)) },
+            onValueChange = {
+                cilindrata = it
+            },
+            //interactionSource = usernameInteractionState,
+        )
+        OutlinedTextField(
+            value = kg,
+            maxLines = 1,
+            modifier = Modifier.fillMaxWidth(0.8f),
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text,
+                imeAction = ImeAction.Next
+            ),
+            label = { Text(Resources.getSystem().getString(R.string.weight), color = Color.LightGray) },
+            placeholder = { Text(Resources.getSystem().getString(R.string.typeMoto)) },
+            onValueChange = {
+                kg = it
+            },
+            //interactionSource = usernameInteractionState,
+        )*/
 
             Spacer(modifier = Modifier.height(12.dp))
 
@@ -250,17 +268,18 @@ fun CardNewMoto() {
                 Text("Aggiungi", color = Color.White)
             }
             Spacer(modifier = Modifier.height(12.dp))
-
-
         }
+        OutlinedButton(
+            onClick = { expanded = !expanded }
+        ) {
+            Text(if (expanded) "-" else "+")
+        }
+        Spacer(modifier = Modifier.height(12.dp))
 
     }
 
+
 }
 
 
-@Preview(widthDp = 350)
-@Composable
-fun CardNewMotoPrev() {
-    CardNewMoto()
-}
+

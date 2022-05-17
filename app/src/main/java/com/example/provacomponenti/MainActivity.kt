@@ -16,7 +16,6 @@ import com.example.provacomponenti.Database.Motor
 import com.example.provacomponenti.Database.Track
 import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
 import com.example.provacomponenti.Navigation.Navigation
-import com.example.provacomponenti.Profile.ProfileScreen
 import com.example.provacomponenti.ui.theme.ProvaComponentiTheme
 
 class MainActivity : ComponentActivity() {
