@@ -188,6 +188,8 @@ fun HomeScreen() {
 
                     }
                 }
+                item { Spacer(modifier = Modifier.height(12.dp)) }
+                item { Text(text = "Suca Suca", style = MaterialTheme.typography.h5) }
 
                 item {
                     Surface(
