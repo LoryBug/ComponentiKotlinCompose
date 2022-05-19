@@ -8,6 +8,7 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.rememberNavController
+import com.example.provacomponenti.CommonItem.FabMaps
 import com.example.provacomponenti.CommonItem.FloatingActionButtons
 import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
 import com.example.provacomponenti.Navigation.Navigation
@@ -48,9 +49,8 @@ fun MainScreen(
 
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
-        floatingActionButton = { FloatingActionButtons(navController) },
-        floatingActionButtonPosition = FabPosition.Center
-    ) {
+        floatingActionButton = { FabMaps(navController) },
+        ) {
         Navigation(navController = navController)
     }
 }

@@ -147,8 +147,6 @@ fun HomeScreen() {
                                     )
 
                                 }
-
-
                             }
                         }
                         item {
@@ -184,6 +182,9 @@ fun HomeScreen() {
                                     )
                                 }
                             }
+                        }
+                        item {
+                            Spacer(modifier = Modifier.width(8.dp))
                         }
 
                     }

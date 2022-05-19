@@ -19,9 +19,10 @@ import com.example.provacomponenti.Database.Track
 fun TrackScreen(){
     var stato by rememberSaveable { mutableStateOf(true) }
     var trackList : LiveData<List<Track>>
-    
+
     Scaffold (
-        topBar = { TopBarSec("Tracciati") }
+        topBar = { TopBarSec("Tracciati") },
+
             ){
         LazyColumn(modifier = Modifier
             .fillMaxSize()
