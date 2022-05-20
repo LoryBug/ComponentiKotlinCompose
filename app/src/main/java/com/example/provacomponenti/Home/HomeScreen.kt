@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
@@ -51,21 +52,13 @@ fun HomeScreen() {
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Text(
-                                "Notizie",
+                                "Attualità",
                                 style = MaterialTheme.typography.subtitle1,
                                 fontWeight = FontWeight.SemiBold
                             )
                             Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a condimentum nunc," +
-                                        " a sollicitudin quam. Vestibulum ante ipsum primis in faucibus orci luctus et " +
-                                        "ultrices posuere cubilia curae; Mauris accumsan vitae leo non pharetra. Orci varius " +
-                                        "natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus" +
-                                        " in eros mauris. Ut id est vitae arcu sodales blandit. In iaculis nisl et erat " +
-                                        "egestas, quis dapibus arcu sagittis. Sed rutrum est sit amet porta dictum." +
-                                        " Aliquam hendrerit euismod dolor, id interdum leo cursus ut. Donec pellentesque accumsan " +
-                                        "magna vel vehicula. Maecenas nec libero fermentum, pellentesque tortor vel," +
-                                        " mattis mauri",
-                                style = MaterialTheme.typography.body1
+                                "Arrestato quel viscido di Solfro che molestava Dua Lipa allo Zouk Santana",
+                                style = MaterialTheme.typography.body1, textAlign = TextAlign.Center
                             )
 
                         }

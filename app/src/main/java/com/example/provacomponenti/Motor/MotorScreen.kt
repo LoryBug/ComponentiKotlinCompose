@@ -13,19 +13,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.provacomponenti.CardNewMoto
 import com.example.provacomponenti.CardPosMotor
 import com.example.provacomponenti.CommonItem.TopBarSec
-import com.example.provacomponenti.Database.Motor
-import com.example.provacomponenti.MainViewModel
+import com.example.provacomponenti.viewModel.MainViewModel
 import com.example.provacomponenti.Motor.Card.CardAddMoto
 
 
 @Composable
 fun MotorScreen(
 ) {
-
-
+    
     Scaffold(topBar = { TopBarSec("Moto") }) {
         LazyColumn(modifier = Modifier
             .fillMaxSize()

@@ -1,16 +1,12 @@
 package com.example.provacomponenti.Navigation
 
-import android.app.Application
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.provacomponenti.Home.HomeScreen
-import com.example.provacomponenti.MainViewModel
 import com.example.provacomponenti.Maps.MapsScreen
 import com.example.provacomponenti.Motor.MotorScreen
-import com.example.provacomponenti.Motor.MotorScreenSetup
 import com.example.provacomponenti.Track.TrackScreen
 
 

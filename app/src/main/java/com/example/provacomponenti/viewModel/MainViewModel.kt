@@ -1,4 +1,4 @@
-package com.example.provacomponenti
+package com.example.provacomponenti.viewModel
 
 import android.app.Application
 import androidx.lifecycle.LiveData
