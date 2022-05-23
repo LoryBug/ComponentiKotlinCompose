@@ -38,10 +38,6 @@ fun HomeScreen() {
                         modifier = Modifier
                             .padding(top = 12.dp)
                             .fillMaxWidth(0.8f),
-                        border = BorderStroke(
-                            2.dp,
-                            MaterialTheme.colors.primary
-                        ),
                         shape = MaterialTheme.shapes.medium,
                         elevation = 4.dp
                     ) {

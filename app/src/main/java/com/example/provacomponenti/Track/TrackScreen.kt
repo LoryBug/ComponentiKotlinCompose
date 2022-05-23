@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.LiveData
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.provacomponenti.CardPosTracks
 import com.example.provacomponenti.CommonItem.TopBarSec
@@ -17,12 +18,12 @@ import com.example.provacomponenti.Database.Track
 
 
 @Composable
-fun TrackScreen(){
+fun TrackScreen(navController: NavController){
     var stato by rememberSaveable { mutableStateOf(true) }
     var trackList : LiveData<List<Track>>
 
     Scaffold (
-        topBar = { TopBarSec("Tracciati") },
+        topBar = { TopBarSec("Tracciati",navController) },
 
             ){
         LazyColumn(modifier = Modifier

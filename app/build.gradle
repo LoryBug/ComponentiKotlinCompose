@@ -80,4 +80,5 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
     //permessi
+    implementation "com.google.accompanist:accompanist-permissions:0.20.2"
 }

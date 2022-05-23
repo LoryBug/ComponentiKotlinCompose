@@ -8,11 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+
 import com.example.provacomponenti.R
 
 @Composable
 fun FloatingActionButtons(navController: NavController){
-    val fabNav = "maps"
+    val fabNav = "permission"
+
     FloatingActionButton(
         onClick = { navController.navigate(fabNav) {
         navController.graph.startDestinationRoute?.let { route ->

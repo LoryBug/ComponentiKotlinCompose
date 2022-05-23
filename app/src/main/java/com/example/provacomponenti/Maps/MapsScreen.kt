@@ -10,34 +10,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.text.input.KeyboardType.Companion.Uri
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
-import androidx.navigation.compose.rememberNavController
-import com.example.provacomponenti.CommonItem.FabMaps
+import androidx.navigation.NavController
 import com.example.provacomponenti.CommonItem.TopBarSec
-import com.example.provacomponenti.R
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.MapView
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-
 import com.google.maps.android.compose.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+
 
 
 @Composable
-fun MapsScreen() {
-
-    val context = LocalContext.current
+fun MapsScreen(navController: NavController) {
 
     var isMapLoaded by remember {
         mutableStateOf(false)
@@ -48,7 +32,7 @@ fun MapsScreen() {
     }
 
     Scaffold(
-        topBar = { TopBarSec("Punti di ritrovo") },
+        topBar = { TopBarSec("Punti di ritrovo",navController)},
     ) {
         Box(modifier = Modifier.fillMaxSize()){
             GoogleMapView(modifier = Modifier.matchParentSize(),

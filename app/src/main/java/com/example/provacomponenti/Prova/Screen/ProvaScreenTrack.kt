@@ -14,16 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.provacomponenti.CommonItem.TopBarSec
 
 @Composable
-fun ProvaTrackScreen() {
+fun ProvaTrackScreen(navController: NavController) {
     var barState by rememberSaveable{(mutableStateOf(false))}
 
 
     Scaffold(
-        topBar = { TopBarSec("Tracciati") },
+        topBar = { TopBarSec("Tracciati", navController) },
         floatingActionButton = {
             FloatingActionButton(onClick = {}) {
                 Icon(

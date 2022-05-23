@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.provacomponenti.CardPosMotor
 import com.example.provacomponenti.CommonItem.TopBarSec
 import com.example.provacomponenti.viewModel.MainViewModel
@@ -20,10 +21,10 @@ import com.example.provacomponenti.Motor.Card.CardAddMoto
 
 
 @Composable
-fun MotorScreen(
+fun MotorScreen( navController: NavController
 ) {
     
-    Scaffold(topBar = { TopBarSec("Moto") }) {
+    Scaffold(topBar = { TopBarSec("Moto",navController) }) {
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 56.dp), horizontalAlignment = Alignment.CenterHorizontally) {

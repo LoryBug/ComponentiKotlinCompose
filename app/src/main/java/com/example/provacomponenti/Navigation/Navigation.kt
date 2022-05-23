@@ -7,6 +7,8 @@ import androidx.navigation.compose.composable
 import com.example.provacomponenti.Home.HomeScreen
 import com.example.provacomponenti.Maps.MapsScreen
 import com.example.provacomponenti.Motor.MotorScreen
+import com.example.provacomponenti.Permission.Sample
+import com.example.provacomponenti.R
 import com.example.provacomponenti.Track.TrackScreen
 
 
@@ -17,13 +19,17 @@ fun Navigation(navController: NavHostController) {
             HomeScreen()
         }
         composable(NavigationItem.MyMotors.route) {
-            MotorScreen()
+            MotorScreen(navController)
         }
         composable(NavigationItem.MyTracks.route) {
-            TrackScreen()
+            TrackScreen(navController)
+        }
+        composable(NavigationItem.Permission.route){
+            Sample(navController)
         }
         composable(NavigationItem.Maps.route){
-            MapsScreen()
+            MapsScreen(navController)
         }
+
     }
 }
