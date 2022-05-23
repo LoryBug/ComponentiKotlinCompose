@@ -19,7 +19,7 @@ fun TopBarSec(string: String,navController: NavController){
         elevation = 4.dp,
         navigationIcon = {
             IconButton(onClick = {
-                navController.popBackStack()
+                navController.navigate("home")
             }) {
                 Icon(Icons.Filled.ArrowBack, contentDescription = null)
             }

@@ -9,4 +9,5 @@ sealed class NavigationItem(var route: String, var icon: Int, var title: String)
     object MyTracks : NavigationItem("track", R.drawable.ic_track, "Tracks")
     object Maps : NavigationItem("maps", R.drawable.ic_pin, "Maps")
     object Permission : NavigationItem("permission", R.drawable.ic_pin, "Permission")
+    object Login : NavigationItem("login", R.drawable.ic_two_wheeler, "Login")
 }

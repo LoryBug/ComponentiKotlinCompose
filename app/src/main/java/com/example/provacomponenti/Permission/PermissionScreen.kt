@@ -21,6 +21,7 @@ fun Sample(navController: NavController) {
         )
     )
     if (locationPermissionsState.allPermissionsGranted) {
+        navController.navigate("maps")
 
     } else {
         Column {

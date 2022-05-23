@@ -15,7 +15,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.example.provacomponenti.Home.HomeScreen
+import com.example.provacomponenti.MainScreen
+import com.example.provacomponenti.Maps.MapsScreen
+import com.example.provacomponenti.Motor.MotorScreen
+import com.example.provacomponenti.Navigation.Navigation
+import com.example.provacomponenti.Navigation.NavigationItem
+import com.example.provacomponenti.Permission.Sample
+import com.example.provacomponenti.Track.TrackScreen
 
 
 @Composable
@@ -25,6 +37,7 @@ fun Login(onLoginSuccess: () -> Unit) {
         var username by remember { mutableStateOf(TextFieldValue("")) }
         var password by remember { mutableStateOf(TextFieldValue("")) }
         var hasError by remember { mutableStateOf(false) }
+        val navController = rememberNavController()
         var passwordVisualTransformation by remember {
             mutableStateOf<VisualTransformation>(
                 PasswordVisualTransformation()
@@ -92,7 +105,7 @@ fun Login(onLoginSuccess: () -> Unit) {
                                 .padding(6.dp)
                         ) {
                             Text(
-                                text = "Sign In!",
+                                text = "Login!",
                                 style = MaterialTheme.typography.h5,
                                 modifier = Modifier.padding(
                                     bottom = 12.dp,
@@ -111,7 +124,7 @@ fun Login(onLoginSuccess: () -> Unit) {
                                 keyboardType = KeyboardType.Text,
                                 imeAction = ImeAction.Next
                             ),
-                            label = { Text(text = "Username", color = Color.White) },
+                            label = { Text(text = "Username", color = Color.Black) },
                             placeholder = { Text("username") },
                             onValueChange = {
                                 username = it
@@ -151,6 +164,8 @@ fun Login(onLoginSuccess: () -> Unit) {
                             loading = true
                             hasError = false
                             onLoginSuccess.invoke()
+                            navController.navigate("home")
+
                         }
                     },
                     modifier = Modifier
