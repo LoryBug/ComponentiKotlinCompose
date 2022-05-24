@@ -25,12 +25,11 @@ fun Navigation(navController: NavHostController) {
         composable(NavigationItem.MyTracks.route) {
             TrackScreen(navController)
         }
-        composable(NavigationItem.Permission.route){
+       /* composable(NavigationItem.Permission.route){
             Sample(navController)
-        }
+        }*/
         composable(NavigationItem.Maps.route){
             MapsScreen(navController)
         }
-
     }
 }

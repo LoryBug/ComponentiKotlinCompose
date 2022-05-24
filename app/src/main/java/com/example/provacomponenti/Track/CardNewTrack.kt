@@ -33,11 +33,18 @@ fun CardNewTrack(){
 private fun ExpCardNewTrack(){
     var expanded by rememberSaveable { mutableStateOf(false) }
     var id by remember { mutableStateOf(TextFieldValue("")) }
+    var name by remember { mutableStateOf(TextFieldValue("")) }
+    var km by remember { mutableStateOf(TextFieldValue("")) }
+    var description by remember { mutableStateOf(TextFieldValue("")) }
+    var typoOfTrack by remember { mutableStateOf(TextFieldValue("")) }
+    var diff by remember { mutableStateOf(TextFieldValue("")) }
+   // var image by remember { mutableStateOf(TextFieldValue("")) }
 
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp
     )
-    Row(modifier = Modifier.padding(24.dp)
+    Row(modifier = Modifier
+        .padding(24.dp)
         .animateContentSize(
             animationSpec = spring(
                 dampingRatio = Spring.DampingRatioMediumBouncy,
@@ -61,20 +68,81 @@ private fun ExpCardNewTrack(){
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 OutlinedTextField(
-                    value = id,
+                    value = name,
                     maxLines = 1,
                     modifier = Modifier.fillMaxWidth(0.8f),
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Text,
                         imeAction = ImeAction.Next
                     ),
-                    label = { Text("Id", color = Color.LightGray) },
-                    placeholder = { Text(text = "Id") },
+                    label = { Text("Name", color = Color.LightGray) },
+                    placeholder = { Text(text = "Name") },
                     onValueChange = {
-                        id = it
+                        name = it
                     },
 
                 )
+                OutlinedTextField(
+                    value = km,
+                    maxLines = 1,
+                    modifier = Modifier.fillMaxWidth(0.8f),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Text,
+                        imeAction = ImeAction.Next
+                    ),
+                    label = { Text("Km", color = Color.LightGray) },
+                    placeholder = { Text(text = "Km") },
+                    onValueChange = {
+                        km = it
+                    },
+
+                    )
+                OutlinedTextField(
+                    value = description,
+                    maxLines = 1,
+                    modifier = Modifier.fillMaxWidth(0.8f),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Text,
+                        imeAction = ImeAction.Next
+                    ),
+                    label = { Text("Descrizione", color = Color.LightGray) },
+                    placeholder = { Text(text = "Descrizione") },
+                    onValueChange = {
+                        description = it
+                    },
+
+                    )
+                OutlinedTextField(
+                    value = typoOfTrack,
+                    maxLines = 1,
+                    modifier = Modifier.fillMaxWidth(0.8f),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Text,
+                        imeAction = ImeAction.Next
+                    ),
+                    label = { Text("Tipo", color = Color.LightGray) },
+                    placeholder = { Text(text = "Tipo") },
+                    onValueChange = {
+                        typoOfTrack = it
+                    },
+
+                    )
+                OutlinedTextField(
+                    value = diff,
+                    maxLines = 1,
+                    modifier = Modifier.fillMaxWidth(0.8f),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Text,
+                        imeAction = ImeAction.Next
+                    ),
+                    label = { Text("Difficoltà", color = Color.LightGray) },
+                    placeholder = { Text(text = "Difficoltà") },
+                    onValueChange = {
+                        diff = it
+                    },
+
+                    )
+
                 Spacer(modifier = Modifier.height(12.dp))
                 OutlinedButton(
                     onClick = { }

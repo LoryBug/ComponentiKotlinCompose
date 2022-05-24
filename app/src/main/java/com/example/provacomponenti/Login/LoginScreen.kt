@@ -15,20 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.provacomponenti.Home.HomeScreen
-import com.example.provacomponenti.MainScreen
-import com.example.provacomponenti.Maps.MapsScreen
-import com.example.provacomponenti.Motor.MotorScreen
-import com.example.provacomponenti.Navigation.Navigation
-import com.example.provacomponenti.Navigation.NavigationItem
-import com.example.provacomponenti.Permission.Sample
-import com.example.provacomponenti.Track.TrackScreen
-
 
 @Composable
 fun Login(onLoginSuccess: () -> Unit) {
@@ -196,4 +183,4 @@ fun Login(onLoginSuccess: () -> Unit) {
 
 }
 fun invalidInput(email: String, password: String) =
-    email.isBlank() || password.isBlank()
+    email.isBlank() || password.isBlank() //|| email != "Lorenzo" || password != "honda"

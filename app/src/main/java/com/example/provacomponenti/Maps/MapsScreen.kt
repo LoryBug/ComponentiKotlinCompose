@@ -1,7 +1,7 @@
 package com.example.provacomponenti.Maps
 
 import android.location.Location
-import android.os.Bundle
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.fadeOut
@@ -30,7 +30,6 @@ fun MapsScreen(navController: NavController) {
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(forli, 11f)
     }
-
     Scaffold(
         topBar = { TopBarSec("Punti di ritrovo",navController)},
     ) {

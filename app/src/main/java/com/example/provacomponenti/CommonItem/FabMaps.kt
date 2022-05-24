@@ -1,33 +1,26 @@
 package com.example.provacomponenti.CommonItem
 
-import android.content.pm.PackageManager
-import android.util.Log
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import com.example.provacomponenti.R
-import com.example.provacomponenti.viewModel.PermissionViewModel
-import java.util.jar.Manifest
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.rememberMultiplePermissionsState
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun FabMaps(navController: NavController){
-    val fabNav = "maps"
-    val scaffoldState = rememberScaffoldState()
-    val permissionViewModel = PermissionViewModel()
+fun FabMaps(navController: NavController) {
 
-    FloatingActionButton(
-        onClick = {
-                  permissionViewModel.setPerformLocationAction(true)
-
-
-            /*
-            navController.navigate(fabNav) {
+    val locationPermissionsState = rememberMultiplePermissionsState(
+        listOf(
+            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+        )
+    )/*
+    if (locationPermissionsState.allPermissionsGranted) {
+        navController.navigate("maps") {
             navController.graph.startDestinationRoute?.let { route ->
                 popUpTo(route) {
                     saveState = true
@@ -38,11 +31,58 @@ fun FabMaps(navController: NavController){
             launchSingleTop = true
             // Restore state when reselecting a previously selected item
             restoreState = true
-        }*/},
+        }
+
+    }
+   /* Button(onClick = { locationPermissionsState.launchMultiplePermissionRequest() }) {
+
+    }*/
+*/
+    FloatingActionButton(
+        onClick = { if (locationPermissionsState.allPermissionsGranted) {
+            navController.navigate("maps") {
+                navController.graph.startDestinationRoute?.let { route ->
+                    popUpTo(route) {
+                        saveState = true
+                    }
+                }
+                // Avoid multiple copies of the same destination when
+                // reselecting the same item
+                launchSingleTop = true
+                // Restore state when reselecting a previously selected item
+                restoreState = true
+            }
+
+        } else{
+            locationPermissionsState.launchMultiplePermissionRequest()
+            if (locationPermissionsState.allPermissionsGranted){
+                navController.navigate("maps")
+            } else {
+                navController.navigate("home")
+            }
+
+        }
+                  },
+
         backgroundColor = MaterialTheme.colors.secondary,
         elevation = FloatingActionButtonDefaults.elevation(8.dp)
     ) {
         Icon(painterResource(id = R.drawable.ic_pin), "pin")
     }
 
+
+    /*
+    navController.navigate(fabNav) {
+    navController.graph.startDestinationRoute?.let { route ->
+        popUpTo(route) {
+            saveState = true
+        }
+    }
+    // Avoid multiple copies of the same destination when
+    // reselecting the same item
+    launchSingleTop = true
+    // Restore state when reselecting a previously selected item
+    restoreState = true
+}*/
 }
+

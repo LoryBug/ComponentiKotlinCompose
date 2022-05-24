@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.navigation.compose.rememberNavController
+import com.example.provacomponenti.CommonItem.FabMaps
 import com.example.provacomponenti.CommonItem.FloatingActionButtons
 import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
 import com.example.provacomponenti.Login.Login
@@ -36,15 +37,15 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
- var showDialog = mutableStateOf(false)
+ var showMainScreen = mutableStateOf(false)
 
 
 @Composable
 fun LoginScreen(){
     Login{
-        showDialog.value = true
+        showMainScreen.value = true
     }
-    if (showDialog.value){
+    if (showMainScreen.value){
         MainScreen()
     }
 
@@ -57,7 +58,7 @@ fun MainScreen(
 
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
-        floatingActionButton = { FloatingActionButtons(navController) },
+        floatingActionButton = { FabMaps(navController) },
     ) {
             Navigation(navController = navController)
         }

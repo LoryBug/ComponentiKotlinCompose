@@ -109,15 +109,14 @@ fun AddMoto() {
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp
     )
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(bottom = extraPadding.coerceAtLeast(0.dp))
             .animateContentSize(
                 animationSpec = spring(
-                    dampingRatio = Spring.DampingRatioMediumBouncy,
-                    stiffness = Spring.StiffnessLow
+                    dampingRatio = Spring.DampingRatioLowBouncy,
+                    stiffness = Spring.StiffnessMediumLow
                 )
             ),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -145,7 +144,6 @@ fun AddMoto() {
                     id = it
                 },
                 //interactionSource = usernameInteractionState,
-
             )
             OutlinedTextField(
                 value = marca,
@@ -155,7 +153,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("", color = Color.LightGray) },
+                label = { Text("Marca", color = Color.LightGray) },
                 placeholder = { Text("Marca") },
                 onValueChange = {
                     marca = it
@@ -170,7 +168,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("", color = Color.LightGray) },
+                label = { Text("Modello", color = Color.LightGray) },
                 placeholder = { Text("Modello") },
                 onValueChange = {
                     modello = it
@@ -185,7 +183,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("", color = Color.LightGray) },
+                label = { Text("Cilindrata", color = Color.LightGray) },
                 placeholder = { Text("Cilindrata") },
                 onValueChange = {
                     cilindrata = it
@@ -200,15 +198,15 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("", color = Color.LightGray) },
+                label = { Text("Tipo", color = Color.LightGray) },
                 placeholder = { Text("Tipo") },
                 onValueChange = {
-                    cilindrata = it
+                    typoOfMoto = it
                 },
                 //interactionSource = usernameInteractionState,
             )
 
-            /*OutlinedTextField(
+            OutlinedTextField(
             value = hp,
             maxLines = 1,
             modifier = Modifier.fillMaxWidth(0.8f),
@@ -216,10 +214,10 @@ fun AddMoto() {
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
             ),
-            label = { Text(Resources.getSystem().getString(R.string.pot), color = Color.LightGray) },
-            placeholder = { Text(Resources.getSystem().getString(R.string.typeMoto)) },
+            label = { Text("Cavalli", color = Color.LightGray) },
+            placeholder = { Text("Cavalli") },
             onValueChange = {
-                cilindrata = it
+                hp = it
             },
             //interactionSource = usernameInteractionState,
         )
@@ -231,34 +229,31 @@ fun AddMoto() {
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
             ),
-            label = { Text(Resources.getSystem().getString(R.string.weight), color = Color.LightGray) },
-            placeholder = { Text(Resources.getSystem().getString(R.string.typeMoto)) },
+            label = { Text("Kg", color = Color.LightGray) },
+            placeholder = { Text("Kg") },
             onValueChange = {
                 kg = it
             },
             //interactionSource = usernameInteractionState,
-        )*/
-
+        )
             Spacer(modifier = Modifier.height(12.dp))
-
             Button(onClick = {
                 mDatePickerDialogInsurance.show()
             }, colors = ButtonDefaults.buttonColors(backgroundColor = Color(0XFF0F9D58))) {
                 Text(text = "Assicurazione", color = Color.White)
                 Text(
                     text = " ${mDateInsurance.value}",
-                    fontSize = 30.sp,
+                    color = Color.White,
+                    fontSize = 24.sp,
                     textAlign = TextAlign.Center
                 )
             }
-
             Spacer(modifier = Modifier.height(12.dp))
-
             Button(onClick = {
                 mDatePickerDialogTax.show()
             }, colors = ButtonDefaults.buttonColors(backgroundColor = Color(0XFF0F9D58))) {
                 Text(text = "Bollo:", color = Color.White)
-                Text(text = "${mDateTax.value}", fontSize = 30.sp, textAlign = TextAlign.Center)
+                Text(text = "${mDateTax.value}", color = Color.White,fontSize = 24.sp, textAlign = TextAlign.Center)
             }
             Spacer(modifier = Modifier.height(12.dp))
             Button(
@@ -275,10 +270,7 @@ fun AddMoto() {
             Text(if (expanded) "-" else "+")
         }
         Spacer(modifier = Modifier.height(12.dp))
-
     }
-
-
 }
 
 

@@ -9,6 +9,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices;
 
 
 @OptIn(ExperimentalPermissionsApi::class)
@@ -62,6 +64,20 @@ fun Sample(navController: NavController) {
     }
 }
 
+
+lateinit var fusedLocationClient: FusedLocationProviderClient
+
+private fun getDeviceLocation(){
+    fusedLocationClient.lastLocation
+        .addOnSuccessListener { location->
+            if (location != null) {
+                // use your location object
+                // get latitude , longitude and other info from this
+            }
+
+        }
+
+}
 
 
 
