@@ -9,13 +9,12 @@ import com.example.provacomponenti.Login.Login
 import com.example.provacomponenti.Maps.MapsScreen
 import com.example.provacomponenti.Motor.MotorScreen
 import com.example.provacomponenti.Permission.Sample
-import com.example.provacomponenti.R
 import com.example.provacomponenti.Track.TrackScreen
 
 
 @Composable
 fun Navigation(navController: NavHostController) {
-    NavHost(navController, startDestination = NavigationItem.Login.route
+    NavHost(navController, startDestination = NavigationItem.Home.route
     ) {
         composable(NavigationItem.Home.route) {
             HomeScreen()
@@ -31,9 +30,6 @@ fun Navigation(navController: NavHostController) {
         }
         composable(NavigationItem.Maps.route){
             MapsScreen(navController)
-        }
-        composable(NavigationItem.Login.route){
-            Login(onLoginSuccess = { navController.navigate("home")})
         }
 
     }

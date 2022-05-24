@@ -24,25 +24,32 @@ class MainActivity : ComponentActivity() {
 
             ProvaComponentiTheme {
 
-                // A surface container using the 'background' color from the theme
                 //CardNewMoto()
                 //Greetings(motors)
                 //TrackCard(tracks)
                 //HomeScreen()
                 //MotorScreen()
-                MainScreen()
-
-
-
+                LoginScreen()
+                //MainScreen()
                 //ProvaTrackScreen()
-
-
-
             }
         }
     }
 }
+ var showDialog = mutableStateOf(false)
 
+
+@Composable
+fun LoginScreen(){
+    Login{
+        showDialog.value = true
+    }
+    if (showDialog.value){
+        MainScreen()
+    }
+
+
+}
 @Composable
 fun MainScreen(
 ) {

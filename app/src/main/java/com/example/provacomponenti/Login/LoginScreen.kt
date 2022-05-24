@@ -164,7 +164,6 @@ fun Login(onLoginSuccess: () -> Unit) {
                             loading = true
                             hasError = false
                             onLoginSuccess.invoke()
-                            navController.navigate("home")
 
                         }
                     },
@@ -181,6 +180,7 @@ fun Login(onLoginSuccess: () -> Unit) {
                 {
                     if (loading) {
                         HorizontalDottedProgressBar()
+
                     } else {
                         Text(
                             text = "Ready to race",
