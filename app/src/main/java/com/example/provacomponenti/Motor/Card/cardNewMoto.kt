@@ -37,7 +37,7 @@ fun CardAddMoto() {
 
 @Composable
 fun AddMoto() {
-    var id by remember { mutableStateOf(TextFieldValue("")) }
+    var id by remember{ mutableStateOf(TextFieldValue("")) }
     var marca by remember { mutableStateOf(TextFieldValue("")) }
     var modello by remember { mutableStateOf(TextFieldValue("")) }
     var cilindrata by remember { mutableStateOf(TextFieldValue("")) }
