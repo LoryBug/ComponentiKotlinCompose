@@ -15,6 +15,7 @@ import com.example.provacomponenti.CardPosTracks
 import com.example.provacomponenti.CommonItem.TopBarSec
 import com.example.provacomponenti.Database.AppRepository
 import com.example.provacomponenti.Database.Track
+import com.example.provacomponenti.Database.tracks
 
 
 @Composable
@@ -29,11 +30,6 @@ fun TrackScreen(navController: NavController){
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .padding(bottom = 56.dp)){
-            /*for(track in tracks) {
-                item { track.name?.let { CardPosTracks(track) } }
-                item { Spacer(modifier = Modifier.height(12.dp)) }
-            }*/
-
             item { Spacer(modifier = Modifier.height(12.dp)) }
             item{
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceAround) {
@@ -46,7 +42,12 @@ fun TrackScreen(navController: NavController){
 
                 }
             }
+            item { Spacer(modifier = Modifier.height(12.dp)) }
             if(stato){
+                for (track in tracks) {
+                    item { track.name?.let { CardPosTracks(track) } }
+                    item { Spacer(modifier = Modifier.height(12.dp)) }
+                }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
                 item { CardNewTrack() }
             } else

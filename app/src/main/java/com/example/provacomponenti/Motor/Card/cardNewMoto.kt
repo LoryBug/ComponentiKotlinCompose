@@ -116,7 +116,7 @@ fun AddMoto() {
             .animateContentSize(
                 animationSpec = spring(
                     dampingRatio = Spring.DampingRatioLowBouncy,
-                    stiffness = Spring.StiffnessMediumLow
+                    stiffness = Spring.StiffnessVeryLow
                 )
             ),
         horizontalAlignment = Alignment.CenterHorizontally

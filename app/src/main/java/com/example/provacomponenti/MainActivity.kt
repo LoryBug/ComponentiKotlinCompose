@@ -37,15 +37,16 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
- var showMainScreen = mutableStateOf(false)
+ var showMainScreen by mutableStateOf(false)
+
 
 
 @Composable
 fun LoginScreen(){
     Login{
-        showMainScreen.value = true
+        showMainScreen = true
     }
-    if (showMainScreen.value){
+    if (showMainScreen){
         MainScreen()
     }
 

@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.provacomponenti.CardPosMotor
 import com.example.provacomponenti.CommonItem.TopBarSec
+import com.example.provacomponenti.Database.motors
 import com.example.provacomponenti.viewModel.MainViewModel
 import com.example.provacomponenti.Motor.Card.CardAddMoto
 
@@ -31,6 +32,10 @@ fun MotorScreen( navController: NavController
 
 
             item { Spacer(modifier = Modifier.height(12.dp))}
+            for(moto in motors){
+
+                item { CardPosMotor(moto) }
+            }
             item{
                 CardAddMoto()
             }

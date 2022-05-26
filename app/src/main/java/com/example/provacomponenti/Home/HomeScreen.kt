@@ -16,9 +16,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.rememberNavController
 import com.example.provacomponenti.CommonItem.FloatingActionButtons
+import com.example.provacomponenti.Database.newsList
 import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
 import com.example.provacomponenti.Home.TopBar.TopBar
 import com.example.provacomponenti.R
+import com.example.provacomponenti.newsAnimation.SwipeCardAnimation
 
 @Composable
 fun HomeScreen() {
@@ -31,8 +33,17 @@ fun HomeScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.fillMaxSize()
             ) {
+                item { Spacer(modifier = Modifier.height(12.dp)) }
+
                 //--------------------sezione notizie---------------------------------------//
-                item {
+                item { Text(text = "Notizie", style = MaterialTheme.typography.h5) }
+                item { Spacer(modifier = Modifier.height(12.dp)) }
+                item { SwipeCardAnimation() }
+               /* for (news in newsList){
+                    item { CardNews(news)}
+                    item { Spacer(modifier = Modifier.height(6.dp)) }
+                }*/
+                /*item {
                     Surface(
                         color = MaterialTheme.colors.background,
                         modifier = Modifier
@@ -61,7 +72,7 @@ fun HomeScreen() {
 
 
                     }
-                }
+                }*/
                 item { Spacer(modifier = Modifier.height(24.dp)) }
                 //--------------------fine sezione notizie---------------------------------------//
                 item { Text(text = "Moto in manutenzione", style = MaterialTheme.typography.h5) }
@@ -72,12 +83,8 @@ fun HomeScreen() {
                             Surface(
                                 color = MaterialTheme.colors.background,
                                 modifier = Modifier
-                                    .padding(top = 12.dp)
+                                    .padding(top = 12.dp, bottom = 12.dp)
                                     .fillMaxWidth(0.8f),
-                                border = BorderStroke(
-                                    2.dp,
-                                    MaterialTheme.colors.primary
-                                ),
                                 shape = MaterialTheme.shapes.medium,
                                 elevation = 4.dp
                             ) {
@@ -110,12 +117,8 @@ fun HomeScreen() {
                             Surface(
                                 color = MaterialTheme.colors.background,
                                 modifier = Modifier
-                                    .padding(top = 12.dp)
+                                    .padding(top = 12.dp, bottom = 12.dp)
                                     .fillMaxWidth(0.8f),
-                                border = BorderStroke(
-                                    2.dp,
-                                    MaterialTheme.colors.primary
-                                ),
                                 shape = MaterialTheme.shapes.medium,
                                 elevation = 4.dp
                             ) {
@@ -145,12 +148,8 @@ fun HomeScreen() {
                             Surface(
                                 color = MaterialTheme.colors.background,
                                 modifier = Modifier
-                                    .padding(top = 12.dp)
+                                    .padding(top = 12.dp, bottom = 12.dp)
                                     .fillMaxWidth(0.8f),
-                                border = BorderStroke(
-                                    2.dp,
-                                    MaterialTheme.colors.primary
-                                ),
                                 shape = MaterialTheme.shapes.medium,
                                 elevation = 4.dp
                             ) {
@@ -187,10 +186,6 @@ fun HomeScreen() {
                         modifier = Modifier
                             .padding(top = 12.dp)
                             .fillMaxWidth(0.8f),
-                        border = BorderStroke(
-                            2.dp,
-                            MaterialTheme.colors.primary
-                        ),
                         shape = MaterialTheme.shapes.medium,
                         elevation = 4.dp
                     ) {

@@ -32,7 +32,8 @@ import com.example.provacomponenti.Database.Motor
 fun CardPosMotor(motor: Motor) {
     Card(
         backgroundColor = MaterialTheme.colors.primary,
-        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
+        elevation = 4.dp
     ) {
         ExpCardMotor(motor)
     }
