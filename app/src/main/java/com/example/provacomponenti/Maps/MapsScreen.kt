@@ -26,9 +26,10 @@ fun MapsScreen(navController: NavController) {
     var isMapLoaded by remember {
         mutableStateOf(false)
     }
-    val forli = LatLng(44.233334, 12.050000)
+
+    val cesena = LatLng(44.14837871007344, 12.235793867040725)
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(forli, 11f)
+        position = CameraPosition.fromLatLngZoom(cesena, 14f)
     }
     Scaffold(
         topBar = { TopBarSec("Punti di ritrovo",navController)},
@@ -88,9 +89,13 @@ fun GoogleMapView(
         )
         {
             Marker(
+                state = MarkerState(position = LatLng(44.14837871007344, 12.235793867040725)),
+                title = "La mia posizione"
+
+            )
+            Marker(
                 state = MarkerState(position = LatLng(44.20306363601473, 12.04606243599329)),
                 title = "Big Bar"
-
             )
             Marker(
                 state = MarkerState(position = LatLng(44.09056599689349, 11.979212269509826)),

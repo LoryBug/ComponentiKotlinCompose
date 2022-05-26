@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 
+val user : String = "Lorenzo"
 @Composable
 fun Login(onLoginSuccess: () -> Unit) {
     Scaffold() {
@@ -92,7 +93,7 @@ fun Login(onLoginSuccess: () -> Unit) {
                                 .padding(6.dp)
                         ) {
                             Text(
-                                text = "Login!",
+                                text = "Login",
                                 style = MaterialTheme.typography.h5,
                                 modifier = Modifier.padding(
                                     bottom = 12.dp,
