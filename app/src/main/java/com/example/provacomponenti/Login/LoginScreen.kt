@@ -80,7 +80,6 @@ fun Login(onLoginSuccess: () -> Unit) {
                     modifier = Modifier
                         .fillMaxWidth(1f)
                         .height(300.dp),
-                    backgroundColor = Color.LightGray,
                     elevation = 6.dp,
                     shape = MaterialTheme.shapes.small,
 
@@ -112,7 +111,7 @@ fun Login(onLoginSuccess: () -> Unit) {
                                 keyboardType = KeyboardType.Text,
                                 imeAction = ImeAction.Next
                             ),
-                            label = { Text(text = "Username", color = Color.Black) },
+                            label = { Text(text = "Username") },
                             placeholder = { Text("username") },
                             onValueChange = {
                                 username = it
@@ -129,7 +128,7 @@ fun Login(onLoginSuccess: () -> Unit) {
                                 keyboardType = KeyboardType.Password,
                                 imeAction = ImeAction.Done
                             ),
-                            label = { Text("Password", color = Color.Black) },
+                            label = { Text("Password") },
                             placeholder = { Text(text = "12334444") },
                             onValueChange = {
                                 password = it
@@ -160,9 +159,6 @@ fun Login(onLoginSuccess: () -> Unit) {
                         .padding(vertical = 16.dp)
                         .height(50.dp)
                         .clip(CircleShape),
-                    colors = ButtonDefaults.buttonColors(
-                        backgroundColor = Color.Blue
-                    ),
                     enabled = true
                 )
                 {

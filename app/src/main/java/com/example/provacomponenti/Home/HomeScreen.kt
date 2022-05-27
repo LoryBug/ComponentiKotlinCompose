@@ -38,7 +38,7 @@ fun HomeScreen() {
             ) {
                 item { Spacer(modifier = Modifier.height(18.dp)) }
                 item {
-                    Surface(modifier = Modifier.padding(6.dp).fillMaxWidth(1f), color = Color.LightGray, shape = MaterialTheme.shapes.medium) {
+                    Surface(modifier = Modifier.padding(6.dp).fillMaxWidth(1f), shape = MaterialTheme.shapes.medium) {
                         Column(
                             modifier = Modifier.padding(4.dp).fillMaxWidth(0.9f),
                             horizontalAlignment = Alignment.CenterHorizontally
@@ -82,7 +82,7 @@ fun HomeScreen() {
                     LazyRow(modifier = Modifier.padding(start = 8.dp)) {
                         item {
                             Surface(
-                                color = MaterialTheme.colors.background,
+
                                 modifier = Modifier
                                     .padding(top = 12.dp, bottom = 12.dp)
                                     .fillMaxWidth(0.8f),
@@ -116,7 +116,7 @@ fun HomeScreen() {
                         }
                         item {
                             Surface(
-                                color = MaterialTheme.colors.background,
+
                                 modifier = Modifier
                                     .padding(top = 12.dp, bottom = 12.dp)
                                     .fillMaxWidth(0.8f),
@@ -183,7 +183,7 @@ fun HomeScreen() {
 
                 item {
                     Surface(
-                        color = MaterialTheme.colors.background,
+
                         modifier = Modifier
                             .padding(top = 12.dp)
                             .fillMaxWidth(0.8f),
