@@ -26,7 +26,7 @@ var motors = listOf(
         2,"Yamaha", "Teneré","700cc","Dual",72,202,290522,301022,"https://h2v5h9c2.rocketcdn.me/wp-content/uploads/2022/03/Yamaha-Te%CC%81ne%CC%81re%CC%81-700-2022-34-1200x675-2.jpeg"
     ),
     Motor(
-        3," Ducati", "V4s","1100cc","Carenata",203,175,290522,301022,"https://i.ytimg.com/vi/oH1-OJe8pMI/maxresdefault.jpg"
+        3,"Ducati", "V4s","1100cc","Carenata",203,175,290522,301022,"https://i.ytimg.com/vi/oH1-OJe8pMI/maxresdefault.jpg"
     ),
 
 )

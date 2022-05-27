@@ -4,17 +4,18 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.provacomponenti.Database.Motor
 
 
@@ -38,6 +39,7 @@ fun CardPosMotor(motor: Motor) {
         ExpCardMotor(motor)
     }
 }
+
 //----------------------------------Contenuto card espandibili---------------------------------------//
 @Composable
 private fun ExpCardMotor(motor: Motor) {
@@ -72,6 +74,15 @@ private fun ExpCardMotor(motor: Motor) {
             }
             if (expanded) {
                 Column {
+                    Spacer(modifier = Modifier.height(12.dp))
+                    AsyncImage(
+                        modifier = Modifier.clip(RoundedCornerShape(5.dp)),
+                        model = motor.imageURL,
+                        contentDescription = "",
+                        contentScale = ContentScale.FillBounds,
+
+                        
+                    )
                     motor.brand?.let { Text("$it") }
                     motor.displacement?.let { Text("Cilindrata: $it") }
                     motor.hp?.let { Text("$it Hp") }
@@ -79,8 +90,6 @@ private fun ExpCardMotor(motor: Motor) {
                     motor.typeOfMoto?.let { Text("$it") }
                     /*motor.typeOfMoto?.let { Text("$it") }
                     motor.typeOfMoto?.let { Text("$it") }*/
-
-
                 }
 
             }

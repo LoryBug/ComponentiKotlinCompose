@@ -14,6 +14,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.provacomponenti.CommonItem.TopBarSec
+import com.example.provacomponenti.Database.favPlaceList
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.*
@@ -88,6 +89,12 @@ fun GoogleMapView(
             }
         )
         {
+            for(marker in favPlaceList){
+                Marker(
+                    state = MarkerState(position = LatLng(marker.lat,marker.lon)),
+                    title = marker.title
+                )
+            }
             Marker(
                 state = MarkerState(position = LatLng(44.14837871007344, 12.235793867040725)),
                 title = "La mia posizione"
@@ -102,9 +109,7 @@ fun GoogleMapView(
                 title = "Predappio"
             )
         }
-
     }
-
 }
 /*
 @Composable
