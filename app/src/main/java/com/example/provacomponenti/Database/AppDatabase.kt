@@ -35,19 +35,18 @@ abstract class AppDatabase : RoomDatabase() {
             return INSTANCE!!
         }
 
-        private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
+       /* private val MIGRATION_1_2: Migration = object : Migration(1, 2) {
             override fun migrate(database: SupportSQLiteDatabase) {
                 // The following query will add a new column called lastUpdate to the notes database
                 database.execSQL("ALTER TABLE notes ADD COLUMN lastUpdate INTEGER NOT NULL DEFAULT 0")
             }
-        }
+        }*/
         private fun buildDatabase(context: Context): AppDatabase {
             return Room.databaseBuilder(
                 context.applicationContext,
                 AppDatabase::class.java,
-                "notes_database"
+                "motorTrack_database"
             )
-                //.addMigrations(MIGRATION_1_2)
                 .addCallback(StartingFiles(context))
                 .build()
         }

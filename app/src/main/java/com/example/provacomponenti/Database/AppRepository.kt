@@ -1,5 +1,6 @@
-package com.example.provacomponenti.Database
 
+package com.example.provacomponenti.Database
+/*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.CoroutineScope
@@ -12,7 +13,7 @@ private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
 // Motor
 
-    val allMotor : LiveData<List<Motor>> = motorDAO.getMotors()
+    val allMotor : List<Motor> = motorDAO.getMotors()
 
 
     fun getAllMotors(motors: MutableLiveData<List<Motor>>){
@@ -27,7 +28,7 @@ private val coroutineScope = CoroutineScope(Dispatchers.Main)
     }
 
     // Track
-    val allTrack: MutableLiveData<List<Track>> = trackDAO.getTrack()
+    val allTrack: LiveData<List<Track>> = trackDAO.getTrack()
 
     fun getAllTracks(track: Track){
         coroutineScope.launch(Dispatchers.IO) {
@@ -36,4 +37,4 @@ private val coroutineScope = CoroutineScope(Dispatchers.Main)
     }
 
 
-}
+}*/

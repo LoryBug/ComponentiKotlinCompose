@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -16,28 +17,44 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.provacomponenti.CardPosMotor
 import com.example.provacomponenti.CommonItem.TopBarSec
+import com.example.provacomponenti.Database.*
 
-import com.example.provacomponenti.Database.motors
-import com.example.provacomponenti.viewModel.MainViewModel
+
 import com.example.provacomponenti.Motor.Card.CardAddMoto
 
 
 @Composable
-fun MotorScreen( navController: NavController
+fun MotorScreen(
+    navController: NavController, viewModel: MotorViewModel
 ) {
-    
-    Scaffold(topBar = { TopBarSec("Moto",navController) }) {
-        LazyColumn(modifier = Modifier
-            .fillMaxSize()
-            .padding(bottom = 56.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+
+    Scaffold(topBar = { TopBarSec("Moto", navController) }) {
+
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = 56.dp), horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+
+            item { Spacer(modifier = Modifier.height(12.dp)) }
 
 
-            item { Spacer(modifier = Modifier.height(12.dp))}
-            for(moto in motors){
-
-                item { CardPosMotor(moto) }
+           item {
+                Button(onClick = { AddMotoretta(viewModel) }) {
+                    Text(text = "ciao")
+                }
             }
-            item{
+            items(viewModel.allMotor) {
+                CardPosMotor(motor = it)
+            }
+            item {
+             }
+/*
+            for (motor in motors) {
+
+                item { CardPosMotor(motor) }
+            }*/
+            item {
                 CardAddMoto()
             }
             item { Spacer(modifier = Modifier.height(6.dp)) }
@@ -46,13 +63,20 @@ fun MotorScreen( navController: NavController
     }
 }
 
-@Composable
-fun MotorScreenSetup(
-    viewModel: MainViewModel = MainViewModel(LocalContext.current.applicationContext as Application)
-){
-    val allMotor by viewModel.allMotors.observeAsState(listOf())
 
-    for (motor in allMotor) {
-        CardPosMotor(motor)
-    }
+
+fun AddMotoretta(motorViewModel: MotorViewModel) {
+    val moto = Motor(
+        4,
+        "Ktm",
+        "1290",
+        "1300cc",
+        "Naked",
+        180,
+        175,
+        "290522",
+        "301022",
+        "https://i.ytimg.com/vi/oH1-OJe8pMI/maxresdefault.jpg"
+    )
+    motorViewModel.onTriggerEvent(MotorEvent.AddMoto(moto))
 }

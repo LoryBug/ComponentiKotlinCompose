@@ -1,16 +1,15 @@
 package com.example.provacomponenti.viewModel
+/*
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
-import androidx.room.Room
 import com.example.provacomponenti.Database.AppDatabase
 import com.example.provacomponenti.Database.AppRepository
 import com.example.provacomponenti.Database.Motor
 import com.example.provacomponenti.Database.Track
 
 class MainViewModel(application: Application) {
-    val allMotors: LiveData<List<Motor>>
+    val allMotors: List<Motor>
     val allTrack: LiveData<List<Track>>
     private val repository: AppRepository
 
@@ -25,4 +24,4 @@ class MainViewModel(application: Application) {
     fun insertMotor(motor: Motor){
         repository.insertMotor(motor)
     }
-}
+}*/

@@ -17,37 +17,22 @@ import android.util.Log
 import com.example.provacomponenti.Database.Motor
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 
-
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-
-
             ProvaComponentiTheme {
-
-                //CardNewMoto()
-                //Greetings(motors)
-                //TrackCard(tracks)
-                //HomeScreen()
-                //MotorScreen()
                 LoginScreen()
-                //MainScreen()
-                //ProvaTrackScreen()
             }
         }
     }
 }
  var showMainScreen by mutableStateOf(false)
-
-
 
 @Composable
 fun LoginScreen(){

@@ -1,4 +1,5 @@
 package com.example.provacomponenti.Prova.DataBaseProva
+/*
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -13,7 +14,7 @@ class ViewModelProva (appObj: Application):AndroidViewModel(appObj){
 
 
     //--------------------------Moto---------------
-    fun getAllMotors():LiveData<List<Motor>>{
+    fun getAllMotors():List<Motor>{
         return repo.readAllMoto
     }
 
@@ -34,4 +35,4 @@ class ViewModelProva (appObj: Application):AndroidViewModel(appObj){
             repo.insertTrack(track = track)
         }
     }
-}
+}*/

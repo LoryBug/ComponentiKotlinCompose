@@ -16,10 +16,10 @@ interface MotorDAO{
     suspend fun insertMoto(motor: Motor)
 
     @Query("SELECT * FROM Motor")
-    fun getMotors() : LiveData<List<Motor>>
+    suspend fun getMotors() : List<Motor>
 
     @Query("SELECT * FROM Motor ORDER BY insuranceExpire DESC LIMIT(1)")
-    suspend fun getExpiringInsMoto() : Motor
+    suspend fun getExpiringInsuranceMoto() : Motor
 
     @Query("SELECT * FROM Motor ORDER BY taxExpire DESC LIMIT(1)")
     suspend fun getExpiringTaxMoto() : Motor

@@ -1,5 +1,5 @@
 package com.example.provacomponenti.Prova.DataBaseProva
-
+/*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -61,4 +61,4 @@ fun MotorList(prova: ViewModelProva){
         }
 
     }
-}
+}*/

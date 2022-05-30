@@ -1,4 +1,5 @@
 package com.example.provacomponenti.Prova.DataBaseProva
+/*
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -19,7 +20,7 @@ class RepositoryProva(application: Application){
 
     //-------------------Moto-----------------------------------
 
-    val readAllMoto:LiveData<List<Motor>> = motorDao.getMotors()
+    val readAllMoto: List<Motor> = motorDao.getMotors()
     suspend fun insertMoto(motor: Motor){
         motorDao.insertMoto(motor)
     }
@@ -40,4 +41,4 @@ class RepositoryProva(application: Application){
         trackDao = database.trackDao()
     }
 
-}
+}*/
