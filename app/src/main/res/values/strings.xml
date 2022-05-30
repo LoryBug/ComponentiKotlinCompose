@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProvaComponenti</string>
+    <string name="app_name">MotorTracks</string>
 
     //Login
     <string name="password" translatable="false">Password</string>
