@@ -42,8 +42,8 @@ class StartingFiles(private val context: Context) : RoomDatabase.Callback() {
                     val typeOfMoto = itemMoto.getString("typeOfMoto")
                     val hp = itemMoto.getInt("hp")
                     val kg = itemMoto.getInt("kg")
-                    val taxExp = itemMoto.getInt("taxExpire")
-                    val insuranceExp = itemMoto.getInt("insuranceExpire")
+                    val taxExp = itemMoto.getString("taxExpire")
+                    val insuranceExp = itemMoto.getString("insuranceExpire")
                     val imageUrl = itemMoto.getString("imageURL")
 
                     //load data to the entity
@@ -62,10 +62,9 @@ class StartingFiles(private val context: Context) : RoomDatabase.Callback() {
                     val km = itemTrack.getInt("km")
                     val description = itemTrack.getString("description")
                     val type = itemTrack.getString("typeOfTrack")
-                    val diff = itemTrack.getString("difficulty")
                     val imageUrl = itemTrack.getString("imageURL")
 
-                    val trackEntity = Track(id,name,km, description,type,diff,imageUrl)
+                    val trackEntity = Track(id,name,km, description,type,imageUrl)
                     daoT?.insertTrack(trackEntity)
 
                 }

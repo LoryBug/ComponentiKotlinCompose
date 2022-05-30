@@ -1,6 +1,7 @@
 package com.example.provacomponenti.Motor.Card
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.widget.DatePicker
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
@@ -22,6 +23,13 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.provacomponenti.Database.Motor
+
+import com.example.provacomponenti.R
+import com.example.provacomponenti.Utils.getJsonDataFromAsset
+
+import com.google.gson.Gson
+import java.io.File
 import java.util.*
 
 
@@ -44,6 +52,7 @@ fun AddMoto() {
     var typoOfMoto by remember { mutableStateOf(TextFieldValue("")) }
     var hp by remember { mutableStateOf(TextFieldValue("")) }
     var kg by remember { mutableStateOf(TextFieldValue("")) }
+    var imgUrl by remember { mutableStateOf(TextFieldValue(""))}
 
 
     //---------------------------- DATA PICKER INSURANCE --------------------------------------//
@@ -142,6 +151,7 @@ fun AddMoto() {
                 placeholder = { Text(text = "Id") },
                 onValueChange = {
                     id = it
+
                 },
                 //interactionSource = usernameInteractionState,
             )
@@ -158,7 +168,7 @@ fun AddMoto() {
                 onValueChange = {
                     marca = it
                 },
-                //interactionSource = usernameInteractionState,
+
             )
             OutlinedTextField(
                 value = modello,
@@ -173,7 +183,7 @@ fun AddMoto() {
                 onValueChange = {
                     modello = it
                 },
-                //interactionSource = usernameInteractionState,
+
             )
             OutlinedTextField(
                 value = cilindrata,
@@ -187,8 +197,9 @@ fun AddMoto() {
                 placeholder = { Text("Cilindrata") },
                 onValueChange = {
                     cilindrata = it
+
                 },
-                //interactionSource = usernameInteractionState,
+
             )
             OutlinedTextField(
                 value = typoOfMoto,
@@ -219,7 +230,6 @@ fun AddMoto() {
             onValueChange = {
                 hp = it
             },
-            //interactionSource = usernameInteractionState,
         )
         OutlinedTextField(
             value = kg,
@@ -234,8 +244,23 @@ fun AddMoto() {
             onValueChange = {
                 kg = it
             },
-            //interactionSource = usernameInteractionState,
+
         )
+            OutlinedTextField(
+                value = imgUrl,
+                maxLines = 1,
+                modifier = Modifier.fillMaxWidth(0.8f),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Text,
+                    imeAction = ImeAction.Next
+                ),
+                label = { Text("Link", color = Color.LightGray) },
+                placeholder = { Text("Link") },
+                onValueChange = {
+                    imgUrl = it
+                },
+            )
+
             Spacer(modifier = Modifier.height(12.dp))
             Button(onClick = {
                 mDatePickerDialogInsurance.show()
@@ -257,7 +282,10 @@ fun AddMoto() {
             }
             Spacer(modifier = Modifier.height(12.dp))
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { /*aggiungiMoto(
+                    id.text.toInt(),marca.text,modello.text, cilindrata.text,typoOfMoto.text,hp.text.toInt(),
+                    kg.text.toInt(),mDateTax.value,mDateInsurance.value, imgUrl.text
+                )*/ },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color(0XFF0F9D58))
             ) {
                 Text("Aggiungi", color = Color.White)
@@ -265,13 +293,34 @@ fun AddMoto() {
             Spacer(modifier = Modifier.height(12.dp))
         }
         OutlinedButton(
-            onClick = { expanded = !expanded }
+            onClick = { expanded = !expanded  }
         ) {
             Text(if (expanded) "-" else "+")
         }
         Spacer(modifier = Modifier.height(12.dp))
     }
+
+
 }
+
+fun aggiungiMoto(id:Int, brand:String, model:String, disp:String,typeOfMoto:String,
+                 hp:Int,kg:Int,tax:String,insurance:String, imageUrl:String){
+    var motoret = Motor(id,brand,model,disp,typeOfMoto,hp,kg,tax,insurance,imageUrl)
+    var gson = Gson() //create Json obj
+    var jsonString:String = gson.toJson(motoret) //convert json obj to jsonString
+
+
+
+
+   // file.writeText(jsonString)
+
+}
+/*
+fun addMoto(id:Int, brand:String, model:String, disp:String,typeOfMoto:String,
+hp:Int,kg:Int,tax:String,insurance:String, imageUrl:String){
+    var motor = Motor(id,brand,model,disp,typeOfMoto,hp,kg,tax,insurance,imageUrl)
+    motorette.add(motor)
+}*/
 
 
 

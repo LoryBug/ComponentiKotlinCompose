@@ -11,10 +11,18 @@ import com.example.provacomponenti.CommonItem.FloatingActionButtons
 import com.example.provacomponenti.Home.BottomBar.BottomNavigationBar
 import com.example.provacomponenti.Login.Login
 import com.example.provacomponenti.Navigation.Navigation
+import com.example.provacomponenti.Utils.getJsonDataFromAsset
 import com.example.provacomponenti.ui.theme.ProvaComponentiTheme
+import android.util.Log
+import com.example.provacomponenti.Database.Motor
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.delay
 
 
 class MainActivity : ComponentActivity() {
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +55,7 @@ fun LoginScreen(){
         showMainScreen = true
     }
     if (showMainScreen){
+
         MainScreen()
     }
 

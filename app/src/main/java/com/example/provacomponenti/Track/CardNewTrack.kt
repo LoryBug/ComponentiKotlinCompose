@@ -131,21 +131,6 @@ private fun ExpCardNewTrack() {
                 },
 
                 )
-            OutlinedTextField(
-                value = diff,
-                maxLines = 1,
-                modifier = Modifier.fillMaxWidth(0.8f),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Next
-                ),
-                label = { Text("Difficoltà", color = Color.Black) },
-                placeholder = { Text(text = "Difficoltà") },
-                onValueChange = {
-                    diff = it
-                },
-
-                )
 
             Spacer(modifier = Modifier.height(12.dp))
             OutlinedButton(

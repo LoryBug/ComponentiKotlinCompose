@@ -69,7 +69,7 @@ private fun ExpCardTrack(track: Track) {
                     track.km?.let { Text("$it Km") }
                     track.description?.let { Text(it) }
                     track.typeOfTrack?.let { Text("Tipo di traccia: $it")}
-                    track.difficulty?.let { Text("Difficoltà: $it")}
+
                 }
 
             }

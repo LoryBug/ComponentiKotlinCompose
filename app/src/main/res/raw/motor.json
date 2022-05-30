@@ -9,7 +9,7 @@
     "kg": "162.5",
     "taxExpire": "",
     "insuranceExpire": "",
-    "imageURL": ""
+    "imageURL": "https://cdn.inmoto.it/images/2021/02/19/181747538-f1c92825-4e21-4c33-bc17-a86c928c8988.jpg"
   },
   {
     "id": "",
@@ -21,18 +21,18 @@
     "kg": "202.1",
     "taxExpire": "",
     "insuranceExpire": "",
-    "imageURL": ""
+    "imageURL": "https://h2v5h9c2.rocketcdn.me/wp-content/uploads/2022/03/Yamaha-Te%CC%81ne%CC%81re%CC%81-700-2022-34-1200x675-2.jpeg"
   },
   {
     "id": "",
     "brand": "Ducati",
-    "model": "Panigale V4",
+    "model": "Panigale V4s",
     "displacement": "1100cc",
     "typeOfMoto": "Carenata",
     "hp": "215.5",
     "kg": "175.0",
     "taxExpire": "",
     "insuranceExpire": "",
-    "imageURL": ""
+    "imageURL": "https://i.ytimg.com/vi/oH1-OJe8pMI/maxresdefault.jpg"
   }
 ]

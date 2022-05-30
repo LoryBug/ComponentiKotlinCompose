@@ -34,7 +34,7 @@ fun MotorList(prova: ViewModelProva){
                 prova.insertMotor(
                     Motor(
                         0,"Honda","FMX","650","SuperMotard",
-                        15,  0,0,21002,"vaio"
+                        15,  0,"0","21002","vaio"
                     )
                 )
             }, icon = {

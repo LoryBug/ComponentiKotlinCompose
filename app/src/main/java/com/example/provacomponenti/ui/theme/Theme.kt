@@ -7,15 +7,19 @@ import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val DarkPalette = darkColors(
-    primary = Color(0xFFb3c5ff),
-    onPrimary = Color(0xFF330099),
-    primaryVariant = Color(0xFF4b00d4),
-    secondary = Color(0xFF877E9E),
-    onSecondary = Color(0xFF322e41),
-    surface = Color(0xFF1c1b1e),
-    onSurface = Color(0xFFe6e1e6)
+private val DarkBluePalette = darkColors(
+    primary = md_theme_dark_primary,
+    onPrimary = md_theme_dark_onPrimary,
+    secondary = md_theme_dark_secondary,
+    onSecondary = md_theme_dark_onSecondary,
 
+    error = md_theme_dark_error,
+
+    onError = md_theme_dark_onError,
+    background = md_theme_dark_background,
+    onBackground = md_theme_dark_onBackground,
+    surface = md_theme_dark_surface,
+    onSurface = md_theme_dark_onSurface,
 )
 private val DarkColorPalette = darkColors(
     primary = Color.LightGray,
@@ -40,6 +44,19 @@ private val LightColorPalette = lightColors(
     onSurface = Color.Black,
     */
 )
+private val LightBluePalette = lightColors(
+
+    primary = md_theme_light_primary,
+    onPrimary = md_theme_light_onPrimary,
+    secondary = md_theme_light_secondary,
+    onSecondary = md_theme_light_onSecondary,
+    error = md_theme_light_error,
+    onError = md_theme_light_onError,
+    background = md_theme_light_background,
+    onBackground = md_theme_light_onBackground,
+    surface = md_theme_light_surface,
+    onSurface = md_theme_light_onSurface,
+)
 
 @Composable
 fun ProvaComponentiTheme(
@@ -47,9 +64,9 @@ fun ProvaComponentiTheme(
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
-        DarkPalette
+        DarkBluePalette
     } else {
-        LightColorPalette
+        LightBluePalette
     }
 
     MaterialTheme(

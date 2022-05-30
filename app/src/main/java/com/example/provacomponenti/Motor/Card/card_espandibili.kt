@@ -80,14 +80,14 @@ private fun ExpCardMotor(motor: Motor) {
                         model = motor.imageURL,
                         contentDescription = "",
                         contentScale = ContentScale.FillBounds,
-
-                        
                     )
                     motor.brand?.let { Text("$it") }
                     motor.displacement?.let { Text("Cilindrata: $it") }
                     motor.hp?.let { Text("$it Hp") }
                     motor.kg?.let { Text("$it Kg") }
                     motor.typeOfMoto?.let { Text("$it") }
+                    motor.insuranceExpire?.let { Text("Assicurazione: $it") }
+                    motor.taxExpire?.let { Text("Bollo: $it") }
                     /*motor.typeOfMoto?.let { Text("$it") }
                     motor.typeOfMoto?.let { Text("$it") }*/
                 }
