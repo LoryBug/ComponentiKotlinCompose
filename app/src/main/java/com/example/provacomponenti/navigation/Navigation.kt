@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.provacomponenti.Database.MotorViewModel
+import com.example.provacomponenti.Database.TrackViewModel
 import com.example.provacomponenti.home.HomeScreen
 import com.example.provacomponenti.maps.MapsScreen
 import com.example.provacomponenti.motor.MotorScreen
@@ -20,11 +21,12 @@ fun Navigation(navController: NavHostController) {
             HomeScreen()
         }
         composable(NavigationItem.MyMotors.route) {
-            val viewModel = hiltViewModel<MotorViewModel>()
-            MotorScreen(navController,viewModel)
+            val motorViewModel = hiltViewModel<MotorViewModel>()
+            MotorScreen(navController,motorViewModel)
         }
         composable(NavigationItem.MyTracks.route) {
-            TrackScreen(navController)
+            val trackViewModel = hiltViewModel<TrackViewModel>()
+            TrackScreen(navController,trackViewModel)
         }
        /* composable(NavigationItem.Permission.route){
             Sample(navController)

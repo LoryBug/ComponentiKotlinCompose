@@ -1,7 +1,5 @@
 package com.example.provacomponenti.Database
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,9 +12,9 @@ interface TrackDAO{
     suspend fun insertTrack(tracciati: Track)
 
     @Query("SELECT * FROM Track")
-    fun getTrack() : LiveData<List<Track>>
+    suspend fun getTrack() : List<Track>
 
     @Query("SELECT * FROM Track WHERE km<75")
-    fun getShortTrack() : List<Track>
+    suspend fun getShortTrack() : List<Track>
 
 }
