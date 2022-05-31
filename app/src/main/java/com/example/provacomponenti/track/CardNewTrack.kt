@@ -17,27 +17,28 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import com.example.provacomponenti.Database.Track
+import com.example.provacomponenti.Database.TrackEvent
+import com.example.provacomponenti.Database.TrackViewModel
 
 
 @Composable
-fun CardNewTrack() {
+fun CardNewTrack(trackViewModel: TrackViewModel) {
     Card(
-        backgroundColor = Color.LightGray,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-        ExpCardNewTrack()
+        ExpCardNewTrack(trackViewModel)
     }
 }
 
 @Composable
-private fun ExpCardNewTrack() {
+private fun ExpCardNewTrack(trackViewModel: TrackViewModel) {
 
     var id by remember { mutableStateOf(TextFieldValue("")) }
     var name by remember { mutableStateOf(TextFieldValue("")) }
     var km by remember { mutableStateOf(TextFieldValue("")) }
     var description by remember { mutableStateOf(TextFieldValue("")) }
     var typoOfTrack by remember { mutableStateOf(TextFieldValue("")) }
-    var diff by remember { mutableStateOf(TextFieldValue("")) }
     // var image by remember { mutableStateOf(TextFieldValue("")) }
 
     var expanded by rememberSaveable { mutableStateOf(false) }
@@ -72,6 +73,21 @@ private fun ExpCardNewTrack() {
                 )
             Spacer(modifier = Modifier.height(12.dp))
             OutlinedTextField(
+                value = id,
+                maxLines = 1,
+                modifier = Modifier.fillMaxWidth(0.8f),
+                keyboardOptions = KeyboardOptions(
+                    keyboardType = KeyboardType.Number,
+                    imeAction = ImeAction.Next
+                ),
+                label = { Text("Id", color = Color.Black) },
+                placeholder = { Text(text = "Id", color = Color.Black) },
+                onValueChange = {
+                    id = it
+                },
+
+                )
+            OutlinedTextField(
                 value = name,
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
@@ -80,7 +96,7 @@ private fun ExpCardNewTrack() {
                     imeAction = ImeAction.Next
                 ),
                 label = { Text("Nome", color = Color.Black) },
-                placeholder = { Text(text = "Nome") },
+                placeholder = { Text(text = "Nome", color = Color.Black) },
                 onValueChange = {
                     name = it
                 },
@@ -91,11 +107,11 @@ private fun ExpCardNewTrack() {
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
+                    keyboardType = KeyboardType.Number,
                     imeAction = ImeAction.Next
                 ),
                 label = { Text("Km", color = Color.Black) },
-                placeholder = { Text(text = "Km") },
+                placeholder = { Text(text = "Km", color = Color.Black) },
                 onValueChange = {
                     km = it
                 },
@@ -110,11 +126,10 @@ private fun ExpCardNewTrack() {
                     imeAction = ImeAction.Next
                 ),
                 label = { Text("Descrizione", color = Color.Black) },
-                placeholder = { Text(text = "Descrizione") },
+                placeholder = { Text(text = "Descrizione", color = Color.Black) },
                 onValueChange = {
                     description = it
                 },
-
                 )
             OutlinedTextField(
                 value = typoOfTrack,
@@ -122,24 +137,30 @@ private fun ExpCardNewTrack() {
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Text,
-                    imeAction = ImeAction.Next
+                    imeAction = ImeAction.Done
                 ),
                 label = { Text("Tipo", color = Color.Black) },
-                placeholder = { Text(text = "Tipo") },
+                placeholder = { Text(text = "Tipo", color = Color.Black) },
                 onValueChange = {
                     typoOfTrack = it
                 },
 
                 )
 
+            var traccia : Track = Track(id.text,name.text,km.text,description.text,typoOfTrack.text,"")
+
+            Text(traccia.toString())
             Spacer(modifier = Modifier.height(12.dp))
+
             OutlinedButton(
-                onClick = { }
+                onClick = {
+                    addNewTrack(trackViewModel,traccia)
+
+                }
             ) {
                 Text("Aggiungi")
             }
             Spacer(modifier = Modifier.height(12.dp))
-
         }
         OutlinedButton(
             onClick = { expanded = !expanded }
@@ -149,5 +170,10 @@ private fun ExpCardNewTrack() {
         Spacer(modifier = Modifier.height(12.dp))
     }
 
+
+}
+
+fun addNewTrack(trackViewModel: TrackViewModel, track: Track) {
+    trackViewModel.onTriggerEvent(TrackEvent.AddTrack(track))
 }
 

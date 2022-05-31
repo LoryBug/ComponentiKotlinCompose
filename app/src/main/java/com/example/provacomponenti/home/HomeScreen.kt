@@ -22,7 +22,7 @@ fun HomeScreen() {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
-        topBar = { TopBar() },
+        topBar = { TopBar(navController) },
         content = {
             LazyColumn(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -30,9 +30,13 @@ fun HomeScreen() {
             ) {
                 item { Spacer(modifier = Modifier.height(18.dp)) }
                 item {
-                    Surface(modifier = Modifier.padding(6.dp).fillMaxWidth(1f), shape = MaterialTheme.shapes.medium) {
+                    Surface(modifier = Modifier
+                        .padding(6.dp)
+                        .fillMaxWidth(1f), shape = MaterialTheme.shapes.medium) {
                         Column(
-                            modifier = Modifier.padding(4.dp).fillMaxWidth(0.9f),
+                            modifier = Modifier
+                                .padding(4.dp)
+                                .fillMaxWidth(0.9f),
                             horizontalAlignment = Alignment.CenterHorizontally
                         ) {
 
@@ -171,6 +175,7 @@ fun HomeScreen() {
                     }
                 }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
+
                 item { Text(text = "Suca Suca", style = MaterialTheme.typography.h5) }
 
                 item {

@@ -28,11 +28,13 @@ private val DarkColorPalette = darkColors(
     onSecondary = Color.White
 )
 private val LightColorPalette = lightColors(
-    primary = Blue_Honda,
-    primaryVariant = Color.Blue,
-    secondary = Blue_Honda,
+    primary = Color(0xFF0055d6),
+    onPrimary= Color(0xFFffffff),
+    secondary = Color(0xFFbc1515),
+    onSecondary = Color(0xFFffffff),
+    background = Color(0xFFFFFBFE),
+    surface = Color(0xFFFFFBFE)
 //    background = Color.LightGray
-
 
 
     /* Other default colors to override
@@ -66,7 +68,7 @@ fun ProvaComponentiTheme(
     val colors = if (darkTheme) {
         DarkBluePalette
     } else {
-        LightBluePalette
+        LightColorPalette
     }
 
     MaterialTheme(

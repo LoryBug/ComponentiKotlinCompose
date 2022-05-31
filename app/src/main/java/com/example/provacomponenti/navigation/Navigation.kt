@@ -28,9 +28,6 @@ fun Navigation(navController: NavHostController) {
             val trackViewModel = hiltViewModel<TrackViewModel>()
             TrackScreen(navController,trackViewModel)
         }
-       /* composable(NavigationItem.Permission.route){
-            Sample(navController)
-        }*/
         composable(NavigationItem.Maps.route){
             MapsScreen(navController)
         }

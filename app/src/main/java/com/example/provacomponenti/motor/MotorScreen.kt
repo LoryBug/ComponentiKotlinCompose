@@ -25,7 +25,6 @@ fun MotorScreen(
 ) {
 
     Scaffold(topBar = { TopBarSec("Moto", navController) }) {
-
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -33,8 +32,6 @@ fun MotorScreen(
         ) {
 
             item { Spacer(modifier = Modifier.height(12.dp)) }
-
-
            item {
                 Button(onClick = { AddMotoretta(viewModel) }) {
                     Text(text = "ciao")
@@ -45,19 +42,15 @@ fun MotorScreen(
             }
            /*
             for (motor in motors) {
-
                 item { CardPosMotor(motor) }
             }*/
             item {
                 CardAddMoto()
             }
             item { Spacer(modifier = Modifier.height(6.dp)) }
-
         }
     }
 }
-
-
 
 fun AddMotoretta(motorViewModel: MotorViewModel) {
     val moto = Motor(

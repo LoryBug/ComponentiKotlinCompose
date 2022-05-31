@@ -298,18 +298,6 @@ fun AddMoto() {
 
 }
 
-fun aggiungiMoto(id:Int, brand:String, model:String, disp:String,typeOfMoto:String,
-                 hp:Int,kg:Int,tax:String,insurance:String, imageUrl:String){
-    var motoret = Motor(id,brand,model,disp,typeOfMoto,hp,kg,tax,insurance,imageUrl)
-    var gson = Gson() //create Json obj
-    var jsonString:String = gson.toJson(motoret) //convert json obj to jsonString
-
-
-
-
-   // file.writeText(jsonString)
-
-}
 /*
 fun addMoto(id:Int, brand:String, model:String, disp:String,typeOfMoto:String,
 hp:Int,kg:Int,tax:String,insurance:String, imageUrl:String){

@@ -116,7 +116,6 @@ fun Login(onLoginSuccess: () -> Unit) {
                                 username = it
                             },
                             interactionSource = usernameInteractionState,
-
                             )
                         OutlinedTextField(
                             value = password,
@@ -128,7 +127,7 @@ fun Login(onLoginSuccess: () -> Unit) {
                                 imeAction = ImeAction.Done
                             ),
                             label = { Text("Password") },
-                            placeholder = { Text(text = "12334444") },
+                            placeholder = { Text(text = "Password") },
                             onValueChange = {
                                 password = it
                             },
@@ -150,7 +149,6 @@ fun Login(onLoginSuccess: () -> Unit) {
                             loading = true
                             hasError = false
                             onLoginSuccess.invoke()
-
                         }
                     },
                     modifier = Modifier
