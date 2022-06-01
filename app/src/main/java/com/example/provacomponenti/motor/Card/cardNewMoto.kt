@@ -74,6 +74,7 @@ fun AddMoto(motorViewModel: MotorViewModel) {
     // store date in string format
     val mDateInsurance = remember { mutableStateOf("") }
 
+
     // Declaring DatePickerDialog and setting
     val mDatePickerDialogInsurance = DatePickerDialog(
         mContextInsurance,
@@ -91,6 +92,7 @@ fun AddMoto(motorViewModel: MotorViewModel) {
     val mContextTax = LocalContext.current
 
     val mCalendarTax = java.util.Calendar.getInstance()
+
 
 
     mYearTax = mCalendarTax.get(java.util.Calendar.YEAR)

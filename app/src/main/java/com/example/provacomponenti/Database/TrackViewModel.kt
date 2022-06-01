@@ -17,6 +17,9 @@ constructor(
     trackDAO: TrackDAO
 ) : ViewModel() {
     val allTrack = mutableListOf<Track>()
+
+    var lastTrack: String? = null
+
     private val repository: TrackRepository
 
     var track: Track? = null
@@ -38,6 +41,9 @@ constructor(
                     is TrackEvent.GetAllTrack -> {
                         allTrack.addAll(repository.getAllTrack())
                     }
+                    is TrackEvent.GetLatestTrack ->{
+                        getLatestTrack()
+                    }
                 }
 
             } catch (e : Exception){
@@ -49,6 +55,12 @@ constructor(
 
     private suspend fun addTrack(track: Track) {
         repository.addTrack(track)
+    }
+
+    private suspend fun getLatestTrack(){
+        lastTrack = repository.getAllTrack().minByOrNull {
+            it.name!!
+        }?.name
     }
 
 }

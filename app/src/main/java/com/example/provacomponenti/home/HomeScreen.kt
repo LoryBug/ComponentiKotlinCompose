@@ -15,13 +15,15 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
 import com.example.provacomponenti.Database.MotorEvent
 import com.example.provacomponenti.Database.MotorViewModel
+import com.example.provacomponenti.Database.TrackEvent
+import com.example.provacomponenti.Database.TrackViewModel
 import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
 import com.example.provacomponenti.home.topBar.TopBar
 import com.example.provacomponenti.login.user
 import com.example.provacomponenti.newsAnimation.SwipeCardAnimation
 
 @Composable
-fun HomeScreen(motorViewModel: MotorViewModel) {
+fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
@@ -189,12 +191,13 @@ fun HomeScreen(motorViewModel: MotorViewModel) {
                                         .padding(12.dp)
                                 ) {
                                     Text(
-                                        "Assicurazioni in scadenza",
+                                        "Ultima traccia inserita",
                                         style = MaterialTheme.typography.subtitle1,
                                         fontWeight = FontWeight.SemiBold
                                     )
+                                    var latestTrack = getLatestTrack(trackViewModel)
                                     Text(
-                                        "Tua mamma è in scadenza",
+                                        "$latestTrack",
                                         style = MaterialTheme.typography.body1
                                     )
                                 }
@@ -263,6 +266,10 @@ fun getExpiringTaxMoto(motorViewModel: MotorViewModel): List<String?> {
     motorViewModel.onTriggerEvent(MotorEvent.GetExpiringTaxMoto)
     var b = listOf(motorViewModel.taxMotor, motorViewModel.taxDate)
     return b
+}
+fun getLatestTrack(trackViewModel: TrackViewModel) : String?{
+    trackViewModel.onTriggerEvent(TrackEvent.GetLatestTrack)
+    return trackViewModel.lastTrack
 }
 
 
