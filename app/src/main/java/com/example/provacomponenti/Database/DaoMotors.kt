@@ -17,6 +17,6 @@ interface MotorDAO{
     @Query("SELECT model FROM Motor LIMIT(1)")
     suspend fun getExpiringInsuranceMoto() : String?
 
-    @Query("SELECT * FROM Motor ORDER BY taxExpire DESC LIMIT(1)")
-    suspend fun getExpiringTaxMoto() : Motor
+    @Query("SELECT model FROM Motor LIMIT(1)")
+    suspend fun getExpiringTaxMoto() : String?
 }

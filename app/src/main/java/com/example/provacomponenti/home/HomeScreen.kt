@@ -1,6 +1,5 @@
 package com.example.provacomponenti.home
 
-import android.util.Log
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -99,17 +98,22 @@ fun HomeScreen(motorViewModel: MotorViewModel) {
                                 Column(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(12.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally
+                                        .padding(12.dp)
                                 ) {
                                     Text(
-                                        "In manutenzione",
+                                        "Assicurazione in scadenza",
                                         style = MaterialTheme.typography.subtitle1,
                                         fontWeight = FontWeight.SemiBold
                                     )
-                                    var text = getMotoIns(motorViewModel)
+                                    var expiringInsMoto = getExpiringInsuranceMoto(motorViewModel)
+                                    var modelIns = expiringInsMoto[0]
+                                    var dateIns = expiringInsMoto[1]
                                     Text(
-                                        "$text",
+                                        "Moto: $modelIns",
+                                        style = MaterialTheme.typography.body1
+                                    )
+                                    Text(
+                                        "Scadenza: $dateIns ",
                                         style = MaterialTheme.typography.body1
                                     )
 
@@ -127,7 +131,8 @@ fun HomeScreen(motorViewModel: MotorViewModel) {
                                 color = MaterialTheme.colors.background,
                                 modifier = Modifier
                                     .padding(top = 12.dp, bottom = 12.dp)
-                                    .fillMaxWidth(0.8f) .border(
+                                    .fillMaxWidth(0.8f)
+                                    .border(
                                         2.dp,
                                         MaterialTheme.colors.surface,
                                         shape = MaterialTheme.shapes.medium
@@ -139,15 +144,22 @@ fun HomeScreen(motorViewModel: MotorViewModel) {
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(12.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally
+
                                 ) {
                                     Text(
-                                        "In Manutenzione",
+                                        "Bollo in scadenza",
                                         style = MaterialTheme.typography.subtitle1,
                                         fontWeight = FontWeight.SemiBold
                                     )
+                                    var expiringTaxMoto = getExpiringTaxMoto(motorViewModel)
+                                    var motorTax = expiringTaxMoto[0]
+                                    var dateTax = expiringTaxMoto[1]
                                     Text(
-                                        "Pagare bollo",
+                                        "Moto: $motorTax",
+                                        style = MaterialTheme.typography.body1
+                                    )
+                                    Text(
+                                        "Scadenza: $dateTax",
                                         style = MaterialTheme.typography.body1
                                     )
 
@@ -162,7 +174,8 @@ fun HomeScreen(motorViewModel: MotorViewModel) {
                                 color = MaterialTheme.colors.background,
                                 modifier = Modifier
                                     .padding(top = 12.dp, bottom = 12.dp)
-                                    .fillMaxWidth(0.8f) .border(
+                                    .fillMaxWidth(0.8f)
+                                    .border(
                                         2.dp,
                                         MaterialTheme.colors.surface,
                                         shape = MaterialTheme.shapes.medium
@@ -173,8 +186,7 @@ fun HomeScreen(motorViewModel: MotorViewModel) {
                                 Column(
                                     modifier = Modifier
                                         .fillMaxWidth()
-                                        .padding(12.dp),
-                                    horizontalAlignment = Alignment.CenterHorizontally
+                                        .padding(12.dp)
                                 ) {
                                     Text(
                                         "Assicurazioni in scadenza",
@@ -240,12 +252,17 @@ fun HomeScreen(motorViewModel: MotorViewModel) {
             }
         })
 }
-fun getMotoIns(motorViewModel: MotorViewModel) : String? {
-    motorViewModel.onTriggerEvent(MotorEvent.GetExpiringInsMoto)
-    val test = motorViewModel.insuranceMotor
-    Log.d("ciao", test.toString())
-    return test
 
+fun getExpiringInsuranceMoto(motorViewModel: MotorViewModel): List<String?> {
+    motorViewModel.onTriggerEvent(MotorEvent.GetExpiringInsMoto)
+    var a = listOf(motorViewModel.insuranceMotor, motorViewModel.insuranceDate)
+    return a
+}
+
+fun getExpiringTaxMoto(motorViewModel: MotorViewModel): List<String?> {
+    motorViewModel.onTriggerEvent(MotorEvent.GetExpiringTaxMoto)
+    var b = listOf(motorViewModel.taxMotor, motorViewModel.taxDate)
+    return b
 }
 
 
