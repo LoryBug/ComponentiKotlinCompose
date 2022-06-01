@@ -17,6 +17,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewModelScope
 import com.example.provacomponenti.Database.Track
 import com.example.provacomponenti.Database.TrackEvent
 import com.example.provacomponenti.Database.TrackViewModel
@@ -147,7 +148,7 @@ private fun ExpCardNewTrack(trackViewModel: TrackViewModel) {
 
                 )
 
-            var traccia : Track = Track(id.text,name.text,km.text,description.text,typoOfTrack.text,"")
+            var traccia = Track(id.text,name.text,km.text,description.text,typoOfTrack.text,"")
 
             Text(traccia.toString())
             Spacer(modifier = Modifier.height(12.dp))
@@ -155,7 +156,6 @@ private fun ExpCardNewTrack(trackViewModel: TrackViewModel) {
             OutlinedButton(
                 onClick = {
                     addNewTrack(trackViewModel,traccia)
-
                 }
             ) {
                 Text("Aggiungi")
@@ -169,8 +169,6 @@ private fun ExpCardNewTrack(trackViewModel: TrackViewModel) {
         }
         Spacer(modifier = Modifier.height(12.dp))
     }
-
-
 }
 
 fun addNewTrack(trackViewModel: TrackViewModel, track: Track) {

@@ -32,8 +32,8 @@ private val LightColorPalette = lightColors(
     onPrimary= Color(0xFFffffff),
     secondary = Color(0xFFbc1515),
     onSecondary = Color(0xFFffffff),
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE)
+    background = Color(0xFFffffff),
+    surface = Color(0xFFDDEAFF)
 //    background = Color.LightGray
 
 

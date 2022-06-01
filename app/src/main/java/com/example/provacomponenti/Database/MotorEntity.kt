@@ -7,13 +7,13 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Motor(
-    @PrimaryKey(autoGenerate = true) var id : Int,
+    @PrimaryKey var id : String,
     val brand: String?,
     val model: String?,
     val displacement: String?, //cilindrata
     val typeOfMoto: String?, //Dual, naked, carenata, etc
-    val hp: Int?,
-    val kg: Int?,
+    val hp: String?,
+    val kg: String?,
     val taxExpire: String?, //scadenza bollo
     val insuranceExpire: String?,
     val imageURL : String?

@@ -1,6 +1,6 @@
 package com.example.provacomponenti.Database
 
-import android.graphics.Bitmap
+
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -20,7 +20,7 @@ var tracks = listOf(
     ),
     Track(
         "2","Muraglione","175","Uno dei passi più famosi in Italia",
-        "Stradale", "pooj"
+        "Stradale", "http://documenti.egaf.it/Test_JS_mpeg/F75D81/HondasNS440R.jpg\n"
     ),
     Track(
         "3","Passo Centocroci","31","Il passo CentoCroci è un valico appenninico posto sul confine tra Emilia Romagna e Liguria.",

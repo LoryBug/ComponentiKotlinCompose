@@ -21,7 +21,7 @@ import com.example.provacomponenti.motor.Card.CardAddMoto
 
 @Composable
 fun MotorScreen(
-    navController: NavController, viewModel: MotorViewModel
+    navController: NavController, motorViewModel: MotorViewModel
 ) {
 
     Scaffold(topBar = { TopBarSec("Moto", navController) }) {
@@ -33,11 +33,11 @@ fun MotorScreen(
 
             item { Spacer(modifier = Modifier.height(12.dp)) }
            item {
-                Button(onClick = { AddMotoretta(viewModel) }) {
+                Button(onClick = { AddMotoretta(motorViewModel) }) {
                     Text(text = "ciao")
                 }
             }
-            items(viewModel.allMotor) {
+            items(motorViewModel.allMotor) {
                 CardPosMotor(motor = it)
             }
            /*
@@ -45,7 +45,7 @@ fun MotorScreen(
                 item { CardPosMotor(motor) }
             }*/
             item {
-                CardAddMoto()
+                CardAddMoto(motorViewModel)
             }
             item { Spacer(modifier = Modifier.height(6.dp)) }
         }
@@ -54,7 +54,7 @@ fun MotorScreen(
 
 fun AddMotoretta(motorViewModel: MotorViewModel) {
     val moto = Motor(
-        1,"Honda", "Dominator","650cc","Dual",40,160,"180923","301022","https://cdn.inmoto.it/images/2021/02/19/181747538-f1c92825-4e21-4c33-bc17-a86c928c8988.jpg"
+        "1","Honda", "Dominator","650cc","Dual","40","160","180923","301022","https://cdn.inmoto.it/images/2021/02/19/181747538-f1c92825-4e21-4c33-bc17-a86c928c8988.jpg"
     )
     motorViewModel.onTriggerEvent(MotorEvent.AddMoto(moto))
 }

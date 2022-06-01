@@ -23,23 +23,26 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.provacomponenti.Database.Motor
+import com.example.provacomponenti.Database.MotorEvent
+import com.example.provacomponenti.Database.MotorViewModel
+import com.example.provacomponenti.Database.TrackViewModel
 
 import com.google.gson.Gson
 import java.util.*
 
 
 @Composable
-fun CardAddMoto() {
+fun CardAddMoto(motorViewModel: MotorViewModel) {
     Card(
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
         elevation = 4.dp
     ) {
-        AddMoto()
+        AddMoto(motorViewModel)
     }
 }
 
 @Composable
-fun AddMoto() {
+fun AddMoto(motorViewModel: MotorViewModel) {
     var id by remember{ mutableStateOf(TextFieldValue("")) }
     var marca by remember { mutableStateOf(TextFieldValue("")) }
     var modello by remember { mutableStateOf(TextFieldValue("")) }
@@ -48,6 +51,7 @@ fun AddMoto() {
     var hp by remember { mutableStateOf(TextFieldValue("")) }
     var kg by remember { mutableStateOf(TextFieldValue("")) }
     var imgUrl by remember { mutableStateOf(TextFieldValue(""))}
+
 
 
     //---------------------------- DATA PICKER INSURANCE --------------------------------------//
@@ -113,6 +117,12 @@ fun AddMoto() {
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp
     )
+    var actMotor = Motor(id.text,marca.text,modello.text,
+        cilindrata.text,
+        typoOfMoto.text,
+        hp.text,
+        kg.text, mDateInsurance.value,mDateTax.value,imgUrl.text)
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -142,7 +152,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("Id", color = Color.LightGray) },
+                label = { Text("Id") },
                 placeholder = { Text(text = "Id") },
                 onValueChange = {
                     id = it
@@ -158,7 +168,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("Marca", color = Color.LightGray) },
+                label = { Text("Marca") },
                 placeholder = { Text("Marca") },
                 onValueChange = {
                     marca = it
@@ -173,7 +183,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("Modello", color = Color.LightGray) },
+                label = { Text("Modello") },
                 placeholder = { Text("Modello") },
                 onValueChange = {
                     modello = it
@@ -188,7 +198,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("Cilindrata", color = Color.LightGray) },
+                label = { Text("Cilindrata") },
                 placeholder = { Text("Cilindrata") },
                 onValueChange = {
                     cilindrata = it
@@ -204,7 +214,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("Tipo", color = Color.LightGray) },
+                label = { Text("Tipo") },
                 placeholder = { Text("Tipo") },
                 onValueChange = {
                     typoOfMoto = it
@@ -220,7 +230,7 @@ fun AddMoto() {
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
             ),
-            label = { Text("Cavalli", color = Color.LightGray) },
+            label = { Text("Cavalli") },
             placeholder = { Text("Cavalli") },
             onValueChange = {
                 hp = it
@@ -234,7 +244,7 @@ fun AddMoto() {
                 keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next
             ),
-            label = { Text("Kg", color = Color.LightGray) },
+            label = { Text("Kg") },
             placeholder = { Text("Kg") },
             onValueChange = {
                 kg = it
@@ -249,7 +259,7 @@ fun AddMoto() {
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
-                label = { Text("Link", color = Color.LightGray) },
+                label = { Text("Link") },
                 placeholder = { Text("Link") },
                 onValueChange = {
                     imgUrl = it
@@ -259,7 +269,7 @@ fun AddMoto() {
             Spacer(modifier = Modifier.height(12.dp))
             Button(onClick = {
                 mDatePickerDialogInsurance.show()
-            }, colors = ButtonDefaults.buttonColors(backgroundColor = Color(0XFF0F9D58))) {
+            }, colors = ButtonDefaults.buttonColors(backgroundColor =  MaterialTheme.colors.primary)) {
                 Text(text = "Assicurazione", color = Color.White)
                 Text(
                     text = " ${mDateInsurance.value}",
@@ -271,19 +281,18 @@ fun AddMoto() {
             Spacer(modifier = Modifier.height(12.dp))
             Button(onClick = {
                 mDatePickerDialogTax.show()
-            }, colors = ButtonDefaults.buttonColors(backgroundColor = Color(0XFF0F9D58))) {
-                Text(text = "Bollo:", color = Color.White)
-                Text(text = "${mDateTax.value}", color = Color.White,fontSize = 24.sp, textAlign = TextAlign.Center)
+            }, colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary))
+            {
+                Text(text = "Bollo:", )
+                Text(text = "${mDateTax.value}",fontSize = 24.sp, textAlign = TextAlign.Center)
             }
             Spacer(modifier = Modifier.height(12.dp))
             Button(
-                onClick = { /*aggiungiMoto(
-                    id.text.toInt(),marca.text,modello.text, cilindrata.text,typoOfMoto.text,hp.text.toInt(),
-                    kg.text.toInt(),mDateTax.value,mDateInsurance.value, imgUrl.text
-                )*/ },
-                colors = ButtonDefaults.buttonColors(backgroundColor = Color(0XFF0F9D58))
+                onClick = {
+                          addNewMotor(motorViewModel, actMotor)
+                },
             ) {
-                Text("Aggiungi", color = Color.White)
+                Text("Aggiungi")
             }
             Spacer(modifier = Modifier.height(12.dp))
         }
@@ -297,7 +306,10 @@ fun AddMoto() {
 
 
 }
+fun addNewMotor(motorViewModel: MotorViewModel, motor: Motor){
 
+    motorViewModel.onTriggerEvent(MotorEvent.AddMoto(motor))
+}
 /*
 fun addMoto(id:Int, brand:String, model:String, disp:String,typeOfMoto:String,
 hp:Int,kg:Int,tax:String,insurance:String, imageUrl:String){

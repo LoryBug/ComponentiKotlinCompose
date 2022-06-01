@@ -44,9 +44,7 @@ fun TrackScreen(navController: NavController, trackViewModel: TrackViewModel){
                     Button(onClick = { stato = false}) {
                         Text("Scaricabili")
                     }
-                    /*Button(onClick = { AddTracciati(trackViewModel)}) {
-                        Text(text = "Aggiungi traccia")
-                    }*/
+
                 }
             }
             item { Spacer(modifier = Modifier.height(12.dp)) }

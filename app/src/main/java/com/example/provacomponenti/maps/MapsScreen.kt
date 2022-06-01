@@ -54,8 +54,6 @@ fun MapsScreen(navController: NavController) {
 
             }
         }
-
-
         Spacer(modifier = Modifier.height(36.dp))
     }
 }
@@ -65,7 +63,6 @@ fun GoogleMapView(
     modifier: Modifier,
     cameraPositionState: CameraPositionState,
     onMapLoaded: ()->Unit,
-    content: @Composable ()-> Unit = {}
 ){
     var mapProperties by remember {
         mutableStateOf(MapProperties(mapType = MapType.NORMAL))
