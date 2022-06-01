@@ -21,7 +21,7 @@ private val DarkBluePalette = darkColors(
     surface = md_theme_dark_surface,
     onSurface = md_theme_dark_onSurface,
 )
-private val DarkColorPalette = darkColors(
+private val DarkColorPaletteProva = darkColors(
     primary = Color.LightGray,
     secondary = Color.Red, //FAB
     surface = Color.Black,
@@ -34,17 +34,15 @@ private val LightColorPalette = lightColors(
     onSecondary = Color(0xFFffffff),
     background = Color(0xFFffffff),
     surface = Color(0xFFDDEAFF)
-//    background = Color.LightGray
+)
+private val DarkColorPalette = darkColors(
+    primary = Color(0xFF0055d6),
+    onPrimary= Color(0xFFffffff),
+    secondary = Color(0xFFbc1515),
+    onSecondary = Color(0xFFffffff),
+    background = Color(0xFF2B3047),
+    surface = Color(0xFF76849B)
 
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
 )
 private val LightBluePalette = lightColors(
 
@@ -66,7 +64,7 @@ fun ProvaComponentiTheme(
     content: @Composable () -> Unit
 ) {
     val colors = if (darkTheme) {
-        DarkBluePalette
+        DarkColorPalette
     } else {
         LightColorPalette
     }

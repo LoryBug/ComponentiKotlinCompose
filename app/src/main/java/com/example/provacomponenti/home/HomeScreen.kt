@@ -1,5 +1,6 @@
 package com.example.provacomponenti.home
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -30,9 +31,11 @@ fun HomeScreen() {
             ) {
                 item { Spacer(modifier = Modifier.height(18.dp)) }
                 item {
-                    Surface(modifier = Modifier
-                        .padding(6.dp)
-                        .fillMaxWidth(1f), shape = MaterialTheme.shapes.medium) {
+                    Surface(
+                        modifier = Modifier
+                            .padding(6.dp)
+                            .fillMaxWidth(1f), shape = MaterialTheme.shapes.medium
+                    ) {
                         Column(
                             modifier = Modifier
                                 .padding(4.dp)
@@ -43,7 +46,7 @@ fun HomeScreen() {
                             Text(
                                 "Benvenuto $user",
                                 fontSize = 28.sp,
-                                style = MaterialTheme.typography.h4 ,
+                                style = MaterialTheme.typography.h4,
                                 textAlign = TextAlign.Left,
                                 modifier = Modifier.padding(4.dp)
                             )
@@ -78,12 +81,17 @@ fun HomeScreen() {
                     LazyRow(modifier = Modifier.padding(start = 8.dp)) {
                         item {
                             Surface(
-
+                                color = MaterialTheme.colors.background,
                                 modifier = Modifier
                                     .padding(top = 12.dp, bottom = 12.dp)
-                                    .fillMaxWidth(0.8f),
+                                    .fillMaxWidth(0.8f)
+                                    .border(
+                                        2.dp,
+                                        MaterialTheme.colors.surface,
+                                        shape = MaterialTheme.shapes.medium
+                                    ),
                                 shape = MaterialTheme.shapes.medium,
-                                elevation = 4.dp
+                                elevation = 4.dp,
                             ) {
                                 Column(
                                     modifier = Modifier
@@ -112,10 +120,14 @@ fun HomeScreen() {
                         }
                         item {
                             Surface(
-
+                                color = MaterialTheme.colors.background,
                                 modifier = Modifier
                                     .padding(top = 12.dp, bottom = 12.dp)
-                                    .fillMaxWidth(0.8f),
+                                    .fillMaxWidth(0.8f) .border(
+                                        2.dp,
+                                        MaterialTheme.colors.surface,
+                                        shape = MaterialTheme.shapes.medium
+                                    ),
                                 shape = MaterialTheme.shapes.medium,
                                 elevation = 4.dp
                             ) {
@@ -146,7 +158,11 @@ fun HomeScreen() {
                                 color = MaterialTheme.colors.background,
                                 modifier = Modifier
                                     .padding(top = 12.dp, bottom = 12.dp)
-                                    .fillMaxWidth(0.8f),
+                                    .fillMaxWidth(0.8f) .border(
+                                        2.dp,
+                                        MaterialTheme.colors.surface,
+                                        shape = MaterialTheme.shapes.medium
+                                    ),
                                 shape = MaterialTheme.shapes.medium,
                                 elevation = 4.dp
                             ) {

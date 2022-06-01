@@ -1,9 +1,6 @@
 package com.example.provacomponenti.commonItem
 
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -13,7 +10,8 @@ import androidx.navigation.NavController
 @Composable
 fun TopBarSec(string: String,navController: NavController){
     TopAppBar(
-        title = { Text(string) },
+        title = { Text(string, color = MaterialTheme.colors.onPrimary) },
+        backgroundColor = MaterialTheme.colors.primary,
         elevation = 4.dp,
         navigationIcon = {
             IconButton(onClick = {

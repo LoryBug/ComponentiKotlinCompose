@@ -16,6 +16,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.unit.Dp
@@ -39,6 +40,7 @@ fun CardStack(
     paddingBetCards : Dp = defPaddingItems,
     animationDuration : Int = defAnimationDuration,
     cardShape: Shape = MaterialTheme.shapes.medium,
+    cardColor: Color = MaterialTheme.colors.background,
     cardBorder: BorderStroke? = null,
     onCardClick: ((Int)->Unit)? = null,
     orientation: Orientation = Orientation.Vertical()
@@ -72,6 +74,7 @@ fun CardStack(
                 rotationValue = rotationValue,
                 orientation = orientation,
                 cardElevation = cardElevation,
+                cardColor = cardColor,
                 cardShape = cardShape,
                 cardBorder = cardBorder,
                 onCardClick = onCardClick,
@@ -101,6 +104,7 @@ fun ShowCard(
     orientation: Orientation,
     cardElevation: Dp,
     cardShape: Shape,
+    cardColor :Color,
     cardBorder: BorderStroke?,
     onCardClick: ((Int) -> Unit)? = null,
     composable: @Composable (Int) -> Unit,
@@ -169,6 +173,7 @@ fun ShowCard(
         shape = cardShape,
         modifier = modifier,
         border = cardBorder,
+        backgroundColor = cardColor,
         onClick =  {
             if(cardCount > 1 && selectedIndex == index) {
                 onCardClick?.invoke(index)

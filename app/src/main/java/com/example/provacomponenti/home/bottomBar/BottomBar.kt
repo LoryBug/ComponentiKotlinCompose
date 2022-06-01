@@ -23,7 +23,7 @@ fun BottomNavigationBar(navController: NavController) {
     )
     BottomNavigation(
         backgroundColor = MaterialTheme.colors.primary,
-        contentColor = Color.White,
+        contentColor = MaterialTheme.colors.onPrimary,
         elevation = 4.dp
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -38,8 +38,8 @@ fun BottomNavigationBar(navController: NavController) {
                     )
                 },
                 label = { Text(text = item.title) },
-                selectedContentColor = MaterialTheme.colors.surface,
-                unselectedContentColor = MaterialTheme.colors.surface.copy(0.6f),
+                selectedContentColor = MaterialTheme.colors.onPrimary,
+                unselectedContentColor = MaterialTheme.colors.onPrimary.copy(0.6f),
                 alwaysShowLabel = true,
                 selected = currentRoute == item.route,
                 onClick = {

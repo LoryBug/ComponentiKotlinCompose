@@ -1,9 +1,8 @@
 package com.example.provacomponenti.newsAnimation
 
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,7 +17,10 @@ import com.example.provacomponenti.Database.newsList
 @Composable
 fun SwipeCardAnimation() {
     CardStack(
+        cardElevation = 4.dp,
+        cardBorder = BorderStroke(2.dp, MaterialTheme.colors.surface),
         cardContent = { index ->
+
             Column(
                 modifier = Modifier
                     .fillMaxWidth(0.9f)
@@ -32,7 +34,7 @@ fun SwipeCardAnimation() {
                     model = newImageList[index],
                     contentDescription = null
                 )
-                newsList.get(index).title?.let {
+                newsList[index].title?.let {
                     Text(
                         it,
                         style = MaterialTheme.typography.subtitle1,
@@ -40,7 +42,7 @@ fun SwipeCardAnimation() {
                     )
                 }
                 Spacer(modifier = Modifier.height(4.dp))
-                newsList.get(index).content?.let {
+                newsList[index].content?.let {
                     Text(
                         it,
                         style = MaterialTheme.typography.body1,
@@ -48,10 +50,7 @@ fun SwipeCardAnimation() {
                     )
                 }
                 Spacer(modifier = Modifier.height(4.dp))
-
             }
-
-
         }, cardCount = newsList.size
     )
 

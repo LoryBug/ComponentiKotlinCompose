@@ -55,8 +55,6 @@ fun AddMoto(motorViewModel: MotorViewModel) {
 
 
     //---------------------------- DATA PICKER INSURANCE --------------------------------------//
-    // gurdare https://www.geeksforgeeks.org/date-picker-in-android-using-jetpack-compose/
-
     // Initializing a Calendar
     val mYearInsurance: Int
     val mMonthInsurance: Int
@@ -158,7 +156,6 @@ fun AddMoto(motorViewModel: MotorViewModel) {
                     id = it
 
                 },
-                //interactionSource = usernameInteractionState,
             )
             OutlinedTextField(
                 value = marca,
@@ -219,7 +216,6 @@ fun AddMoto(motorViewModel: MotorViewModel) {
                 onValueChange = {
                     typoOfMoto = it
                 },
-                //interactionSource = usernameInteractionState,
             )
 
             OutlinedTextField(
