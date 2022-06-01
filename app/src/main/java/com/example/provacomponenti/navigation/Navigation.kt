@@ -18,7 +18,9 @@ fun Navigation(navController: NavHostController) {
     NavHost(navController, startDestination = NavigationItem.Home.route
     ) {
         composable(NavigationItem.Home.route) {
-            HomeScreen()
+            val motorViewModel = hiltViewModel<MotorViewModel>()
+            val trackViewModel = hiltViewModel<TrackViewModel>()
+            HomeScreen(motorViewModel)
         }
         composable(NavigationItem.MyMotors.route) {
             val motorViewModel = hiltViewModel<MotorViewModel>()

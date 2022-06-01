@@ -1,5 +1,6 @@
 package com.example.provacomponenti.home
 
+import android.util.Log
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,13 +14,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.rememberNavController
+import com.example.provacomponenti.Database.MotorEvent
+import com.example.provacomponenti.Database.MotorViewModel
 import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
 import com.example.provacomponenti.home.topBar.TopBar
 import com.example.provacomponenti.login.user
 import com.example.provacomponenti.newsAnimation.SwipeCardAnimation
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(motorViewModel: MotorViewModel) {
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
@@ -104,8 +107,9 @@ fun HomeScreen() {
                                         style = MaterialTheme.typography.subtitle1,
                                         fontWeight = FontWeight.SemiBold
                                     )
+                                    var text = getMotoIns(motorViewModel)
                                     Text(
-                                        "Rinnovare assicurazione",
+                                        "$text",
                                         style = MaterialTheme.typography.body1
                                     )
 
@@ -235,6 +239,13 @@ fun HomeScreen() {
                 item { Spacer(modifier = Modifier.height(90.dp)) }
             }
         })
+}
+fun getMotoIns(motorViewModel: MotorViewModel) : String? {
+    motorViewModel.onTriggerEvent(MotorEvent.GetExpiringInsMoto)
+    val test = motorViewModel.insuranceMotor
+    Log.d("ciao", test.toString())
+    return test
+
 }
 
 

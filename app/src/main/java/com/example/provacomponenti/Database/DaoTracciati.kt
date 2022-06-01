@@ -14,7 +14,7 @@ interface TrackDAO{
     @Query("SELECT * FROM Track")
     suspend fun getTrack() : List<Track>
 
-    @Query("SELECT * FROM Track WHERE km<75")
+    @Query("SELECT * FROM Track WHERE km<35")
     suspend fun getShortTrack() : List<Track>
 
 }

@@ -8,17 +8,15 @@ import androidx.room.Query
 @Dao
 interface MotorDAO{
     //----------------------------------    MOTO    ------------------------------------//
-
     @Insert(onConflict = OnConflictStrategy.IGNORE) //  INSERIMENTO MOTO
     suspend fun insertMoto(motor: Motor)
 
     @Query("SELECT * FROM Motor")
     suspend fun getMotors() : List<Motor>
 
-    @Query("SELECT * FROM Motor ORDER BY insuranceExpire DESC LIMIT(1)")
-    suspend fun getExpiringInsuranceMoto() : Motor
+    @Query("SELECT model FROM Motor LIMIT(1)")
+    suspend fun getExpiringInsuranceMoto() : String?
 
     @Query("SELECT * FROM Motor ORDER BY taxExpire DESC LIMIT(1)")
     suspend fun getExpiringTaxMoto() : Motor
-
 }

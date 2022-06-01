@@ -37,11 +37,8 @@ fun LoginScreen() {
         showMainScreen = true
     }
     if (showMainScreen) {
-
         MainScreen()
     }
-
-
 }
 
 @Composable
