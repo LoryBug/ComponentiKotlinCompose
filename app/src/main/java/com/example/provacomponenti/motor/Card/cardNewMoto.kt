@@ -52,8 +52,6 @@ fun AddMoto(motorViewModel: MotorViewModel) {
     var kg by remember { mutableStateOf(TextFieldValue("")) }
     var imgUrl by remember { mutableStateOf(TextFieldValue(""))}
 
-
-
     //---------------------------- DATA PICKER INSURANCE --------------------------------------//
     // Initializing a Calendar
     val mYearInsurance: Int
@@ -64,7 +62,6 @@ fun AddMoto(motorViewModel: MotorViewModel) {
 
     val mCalendarInsurance = java.util.Calendar.getInstance()
 
-
     mYearInsurance = mCalendarInsurance.get(java.util.Calendar.YEAR)
     mMonthInsurance = mCalendarInsurance.get(java.util.Calendar.MONTH)
     mDayInsurance = mCalendarInsurance.get(java.util.Calendar.DAY_OF_MONTH)
@@ -73,7 +70,6 @@ fun AddMoto(motorViewModel: MotorViewModel) {
     // Declaring a string value to
     // store date in string format
     val mDateInsurance = remember { mutableStateOf("") }
-
 
     // Declaring DatePickerDialog and setting
     val mDatePickerDialogInsurance = DatePickerDialog(
@@ -93,8 +89,6 @@ fun AddMoto(motorViewModel: MotorViewModel) {
 
     val mCalendarTax = java.util.Calendar.getInstance()
 
-
-
     mYearTax = mCalendarTax.get(java.util.Calendar.YEAR)
     mMonthTax = mCalendarTax.get(java.util.Calendar.MONTH)
     mDayTax = mCalendarTax.get(java.util.Calendar.DAY_OF_MONTH)
@@ -112,6 +106,8 @@ fun AddMoto(motorViewModel: MotorViewModel) {
             mDateTax.value = "$mDayOfMonth/${mMonth + 1}/$mYear"
         }, mYearTax, mMonthTax, mDayTax
     )
+
+
     //------------------------------------------------//
     var expanded by rememberSaveable { (mutableStateOf(false)) }
     val extraPadding by animateDpAsState(

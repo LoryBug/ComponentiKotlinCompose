@@ -29,7 +29,6 @@ fun CardPosTracks(track: Track) {
 private fun ExpCardTrack(track: Track) {
 
     var expanded by rememberSaveable { mutableStateOf(false) }
-
     val extraPadding by animateDpAsState(
         if (expanded) 48.dp else 0.dp
     )
@@ -65,7 +64,6 @@ private fun ExpCardTrack(track: Track) {
                     track.km?.let { Text("$it Km") }
                     track.description?.let { Text(it) }
                     track.typeOfTrack?.let { Text("Tipo di traccia: $it") }
-
                 }
             }
         }
