@@ -18,71 +18,39 @@ fun FabMaps(navController: NavController) {
             android.Manifest.permission.ACCESS_COARSE_LOCATION,
             android.Manifest.permission.ACCESS_FINE_LOCATION,
         )
-    )/*
-    if (locationPermissionsState.allPermissionsGranted) {
-        navController.navigate("maps") {
-            navController.graph.startDestinationRoute?.let { route ->
-                popUpTo(route) {
-                    saveState = true
-                }
-            }
-            // Avoid multiple copies of the same destination when
-            // reselecting the same item
-            launchSingleTop = true
-            // Restore state when reselecting a previously selected item
-            restoreState = true
-        }
-
-    }
-   /* Button(onClick = { locationPermissionsState.launchMultiplePermissionRequest() }) {
-
-    }*/
-*/
+    )
     FloatingActionButton(
-        onClick = { if (locationPermissionsState.allPermissionsGranted) {
-            navController.navigate("maps") {
-                navController.graph.startDestinationRoute?.let { route ->
-                    popUpTo(route) {
-                        saveState = true
+        onClick = {
+            if (locationPermissionsState.allPermissionsGranted) {
+                navController.navigate("maps") {
+                    navController.graph.startDestinationRoute?.let { route ->
+                        popUpTo(route) {
+                            saveState = true
+                        }
                     }
+                    // Avoid multiple copies of the same destination when
+                    // reselecting the same item
+                    launchSingleTop = true
+                    // Restore state when reselecting a previously selected item
+                    restoreState = true
                 }
-                // Avoid multiple copies of the same destination when
-                // reselecting the same item
-                launchSingleTop = true
-                // Restore state when reselecting a previously selected item
-                restoreState = true
-            }
-
-        } else{
-            locationPermissionsState.launchMultiplePermissionRequest()
-            if (locationPermissionsState.allPermissionsGranted){
-                navController.navigate("maps")
             } else {
-                navController.navigate("home")
-            }
+                locationPermissionsState.launchMultiplePermissionRequest()
+                if (locationPermissionsState.allPermissionsGranted) {
+                    navController.navigate("maps")
+                } else {
+                    navController.navigate("home")
+                }
 
-        }
-                  },
+            }
+        },
 
         backgroundColor = MaterialTheme.colors.secondary,
         elevation = FloatingActionButtonDefaults.elevation(8.dp)
     ) {
         Icon(painterResource(id = R.drawable.ic_pin), "pin")
     }
-
-
-    /*
-    navController.navigate(fabNav) {
-    navController.graph.startDestinationRoute?.let { route ->
-        popUpTo(route) {
-            saveState = true
-        }
-    }
-    // Avoid multiple copies of the same destination when
-    // reselecting the same item
-    launchSingleTop = true
-    // Restore state when reselecting a previously selected item
-    restoreState = true
-}*/
 }
+
+
 

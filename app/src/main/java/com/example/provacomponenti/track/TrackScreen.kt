@@ -1,5 +1,6 @@
 package com.example.provacomponenti.track
 
+import android.Manifest
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -15,8 +16,14 @@ import androidx.navigation.NavController
 import com.example.provacomponenti.commonItem.TopBarSec
 import com.example.provacomponenti.Database.TrackViewModel
 import com.example.provacomponenti.Database.tracks
+import com.example.provacomponenti.camera.CameraPreview
+import com.example.provacomponenti.commonItem.FabMaps
+import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.rememberPermissionState
 
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun TrackScreen(navController: NavController, trackViewModel: TrackViewModel){
     var stato by rememberSaveable { mutableStateOf(true) }
@@ -24,8 +31,10 @@ fun TrackScreen(navController: NavController, trackViewModel: TrackViewModel){
     val colorButtonMy = if(!stato)   MaterialTheme.colors.primary else MaterialTheme.colors.primary.copy(alpha = 0.3f)
     val colorButtonDow = if(stato)   MaterialTheme.colors.primary else MaterialTheme.colors.primary.copy(alpha = 0.3f)
 
+
     Scaffold (
         topBar = { TopBarSec("Tracciati",navController) },
+
             ){
         LazyColumn(modifier = Modifier
             .fillMaxSize()
@@ -48,7 +57,7 @@ fun TrackScreen(navController: NavController, trackViewModel: TrackViewModel){
                     CardPosTracks(track = it)
                 }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
-                item { CardNewTrack( trackViewModel) }
+
             } else
             {
                 item { Spacer(modifier = Modifier.height(12.dp)) }

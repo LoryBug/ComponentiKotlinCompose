@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import com.example.provacomponenti.CardPosMotor
 import com.example.provacomponenti.commonItem.TopBarSec
 import com.example.provacomponenti.Database.*
+import com.example.provacomponenti.commonItem.FabMaps
 
 
 import com.example.provacomponenti.motor.Card.CardAddMoto
@@ -24,7 +25,8 @@ fun MotorScreen(
     navController: NavController, motorViewModel: MotorViewModel
 ) {
 
-    Scaffold(topBar = { TopBarSec("Moto", navController) }
+    Scaffold(topBar = { TopBarSec("Moto", navController)
+    }
     ) {
         LazyColumn(
             modifier = Modifier

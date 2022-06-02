@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.provacomponenti.commonItem.TopBarSec
 import com.example.provacomponenti.Database.favPlaceList
+import com.example.provacomponenti.commonItem.FabMaps
+import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.*
@@ -31,6 +33,8 @@ fun MapsScreen(navController: NavController) {
     }
     Scaffold(
         topBar = { TopBarSec("Punti di ritrovo",navController)},
+
+
     ) {
         Box(modifier = Modifier.fillMaxSize()){
             GoogleMapView(modifier = Modifier.matchParentSize(),
@@ -105,35 +109,3 @@ fun GoogleMapView(
         }
     }
 }
-/*
-@Composable
-fun GoogleMap(
-) {
-
-    val forli = LatLng(44.233334, 12.050000)
-    val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(forli, 11f)
-    }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
-    ) {
-
-        GoogleMap(
-            modifier = Modifier.fillMaxSize(),
-            cameraPositionState = cameraPositionState
-        ){
-            Marker(
-                state = MarkerState(position = LatLng(44.20306363601473, 12.04606243599329)),
-                title = "Big Bar"
-
-            )
-            Marker(
-                state = MarkerState(position = LatLng(44.09056599689349, 11.979212269509826)),
-                title = "Predappio"
-            )
-        }
-    }
-}*/

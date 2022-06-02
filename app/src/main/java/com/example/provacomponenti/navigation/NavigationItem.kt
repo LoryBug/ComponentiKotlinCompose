@@ -1,9 +1,6 @@
 package com.example.provacomponenti.navigation
 
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
 import com.example.provacomponenti.R
-
 
 sealed class NavigationItem(var route: String, var icon: Int, var title: String) {
     object Home : NavigationItem("home", R.drawable.ic_home, "Home")

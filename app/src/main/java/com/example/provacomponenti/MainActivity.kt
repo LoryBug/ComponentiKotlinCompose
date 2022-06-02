@@ -9,7 +9,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.navigation.compose.rememberNavController
-import com.example.provacomponenti.commonItem.FabMaps
 import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
 import com.example.provacomponenti.login.Login
 import com.example.provacomponenti.navigation.Navigation
@@ -48,7 +47,7 @@ fun MainScreen(
 
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
-        floatingActionButton = { FabMaps(navController) },
+
     ) {
         Navigation(navController = navController)
     }

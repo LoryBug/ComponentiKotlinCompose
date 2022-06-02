@@ -12,22 +12,26 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.provacomponenti.Database.MotorEvent
 import com.example.provacomponenti.Database.MotorViewModel
 import com.example.provacomponenti.Database.TrackEvent
 import com.example.provacomponenti.Database.TrackViewModel
+import com.example.provacomponenti.commonItem.FabMaps
 import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
 import com.example.provacomponenti.home.topBar.TopBar
 import com.example.provacomponenti.login.user
 import com.example.provacomponenti.newsAnimation.SwipeCardAnimation
 
 @Composable
-fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel) {
-    val navController = rememberNavController()
+fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,navController:NavController) {
+
     Scaffold(
         bottomBar = { BottomNavigationBar(navController) },
         topBar = { TopBar(navController) },
+        floatingActionButton = { FabMaps(navController ) },
         content = {
             LazyColumn(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -61,8 +65,6 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel) {
                                 textAlign = TextAlign.Justify,
                                 modifier = Modifier.padding(4.dp)
                             )
-
-
                         }
                     }
                 }
