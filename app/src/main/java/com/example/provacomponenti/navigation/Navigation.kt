@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.provacomponenti.Database.MotorViewModel
 import com.example.provacomponenti.Database.TrackViewModel
+import com.example.provacomponenti.camera.CameraScreen
 import com.example.provacomponenti.home.HomeScreen
 import com.example.provacomponenti.maps.MapsScreen
 import com.example.provacomponenti.motor.MotorScreen
@@ -32,6 +33,9 @@ fun Navigation(navController: NavHostController) {
         }
         composable(NavigationItem.Maps.route){
             MapsScreen(navController)
+        }
+        composable(NavigationItem.Camera.route){
+            CameraScreen(navController)
         }
     }
 }

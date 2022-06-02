@@ -24,7 +24,8 @@ fun MotorScreen(
     navController: NavController, motorViewModel: MotorViewModel
 ) {
 
-    Scaffold(topBar = { TopBarSec("Moto", navController) }) {
+    Scaffold(topBar = { TopBarSec("Moto", navController) }
+    ) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
@@ -36,7 +37,7 @@ fun MotorScreen(
                 CardPosMotor(motor = it)
             }
             item {
-                CardAddMoto(motorViewModel)
+                CardAddMoto(motorViewModel,navController)
             }
             item { Spacer(modifier = Modifier.height(6.dp)) }
         }
