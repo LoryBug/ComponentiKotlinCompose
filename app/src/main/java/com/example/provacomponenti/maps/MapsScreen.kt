@@ -84,7 +84,7 @@ fun GoogleMapView(
             onMapLoaded = onMapLoaded,
             onPOIClick = {
 
-            }
+            },
         )
         {
             for(marker in favPlaceList){
