@@ -17,6 +17,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewModelScope
 import com.example.provacomponenti.Database.Track
 import com.example.provacomponenti.Database.TrackEvent
@@ -163,7 +164,7 @@ private fun ExpCardNewTrack(trackViewModel: TrackViewModel) {
         OutlinedButton(
             onClick = { expanded = !expanded }
         ) {
-            Text(if (expanded) "-" else "+", color = MaterialTheme.colors.onSurface)
+            Text(if (expanded) "-" else "+", fontSize = 21.sp, color = MaterialTheme.colors.onSurface)
         }
         Spacer(modifier = Modifier.height(12.dp))
     }

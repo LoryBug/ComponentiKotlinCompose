@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -24,7 +25,7 @@ import com.example.provacomponenti.motor.Card.CardAddMoto
 fun MotorScreen(
     navController: NavController, motorViewModel: MotorViewModel
 ) {
-
+    val motors = motorViewModel.allMotor
     Scaffold(topBar = { TopBarSec("Moto", navController)
     }
     ) {
@@ -33,9 +34,8 @@ fun MotorScreen(
                 .fillMaxSize()
                 .padding(bottom = 56.dp), horizontalAlignment = Alignment.CenterHorizontally
         ) {
-
             item { Spacer(modifier = Modifier.height(12.dp)) }
-            items(motorViewModel.allMotor) {
+            items(motors) {
                 CardPosMotor(motor = it)
             }
             item {

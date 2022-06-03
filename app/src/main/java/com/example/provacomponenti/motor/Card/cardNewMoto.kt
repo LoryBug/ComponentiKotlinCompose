@@ -45,7 +45,7 @@ fun CardAddMoto(motorViewModel: MotorViewModel, navController: NavController) {
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp),
         elevation = 4.dp
     ) {
-        AddMoto(motorViewModel, navController )
+        AddMoto(motorViewModel, navController)
     }
 }
 
@@ -210,8 +210,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                     cilindrata = it
 
                 },
-
-                )
+            )
             OutlinedTextField(
                 value = typoOfMoto,
                 maxLines = 1,
@@ -226,7 +225,6 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                     typoOfMoto = it
                 },
             )
-
             OutlinedTextField(
                 value = hp,
                 maxLines = 1,
@@ -254,28 +252,26 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 onValueChange = {
                     kg = it
                 },
-
-                )
+            )
             Spacer(modifier = Modifier.height(12.dp))
-           
             Button(onClick = {
                 cameraPermissionState.launchPermissionRequest()
-                if(cameraPermissionState.hasPermission){
+                if (cameraPermissionState.hasPermission) {
                     navController.navigate("camera")
                 }
-
             }) {
-                Row(modifier = Modifier.fillMaxWidth(0.4f), verticalAlignment = Alignment.CenterVertically,horizontalArrangement = Arrangement.SpaceBetween) {
-                    Icon(painterResource(id = R.drawable.ic_baseline_photo_camera_24), contentDescription = "")
+                Row(
+                    modifier = Modifier.fillMaxWidth(0.4f),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Icon(
+                        painterResource(id = R.drawable.ic_baseline_photo_camera_24),
+                        contentDescription = ""
+                    )
                     Text("Aggiungi una foto")
-
                 }
-
-
-
             }
-
-
             /*
             OutlinedTextField(
                 value = imgUrl,
@@ -328,7 +324,11 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
         OutlinedButton(
             onClick = { expanded = !expanded }
         ) {
-            Text(if (expanded) "-" else "+", color = MaterialTheme.colors.onSurface)
+            Text(
+                if (expanded) "-" else "+",
+                fontSize = 21.sp,
+                color = MaterialTheme.colors.onSurface
+            )
         }
         Spacer(modifier = Modifier.height(12.dp))
     }
@@ -339,12 +339,6 @@ fun addNewMotor(motorViewModel: MotorViewModel, motor: Motor) {
 
     motorViewModel.onTriggerEvent(MotorEvent.AddMoto(motor))
 }
-/*
-fun addMoto(id:Int, brand:String, model:String, disp:String,typeOfMoto:String,
-hp:Int,kg:Int,tax:String,insurance:String, imageUrl:String){
-    var motor = Motor(id,brand,model,disp,typeOfMoto,hp,kg,tax,insurance,imageUrl)
-    motorette.add(motor)
-}*/
 
 
 

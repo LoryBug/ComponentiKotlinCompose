@@ -1,6 +1,7 @@
 package com.example.provacomponenti.Database
 
 import android.util.Log
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -18,17 +19,17 @@ class MotorViewModel
 constructor(
     motorDAO: MotorDAO
 ) : ViewModel() {
+     //val allMotor = mutableStateListOf<Motor>()
      val allMotor = mutableListOf<Motor>()
 
     private val repository: MotorRepository = MotorRepository(motorDAO)
 
     var insuranceMotor: String? = null
     var insuranceDate: String? = null
-
     var taxMotor : String? = null
     var taxDate : String? = null
-
     var motor: Motor? = null
+
         private set
     init {
         onTriggerEvent(MotorEvent.GetAllMoto)
@@ -57,6 +58,7 @@ constructor(
     }
     private suspend fun addMoto(motor: Motor) {
         repository.addMoto(motor)
+        allMotor.add(motor)
     }
     private suspend fun getExpInsMoto() {
         insuranceMotor =  repository.getAllMotors().minByOrNull {

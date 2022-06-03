@@ -28,13 +28,11 @@ import com.google.accompanist.permissions.rememberPermissionState
 fun TrackScreen(navController: NavController, trackViewModel: TrackViewModel){
     var stato by rememberSaveable { mutableStateOf(true) }
 
-    val colorButtonMy = if(!stato)   MaterialTheme.colors.primary else MaterialTheme.colors.primary.copy(alpha = 0.3f)
-    val colorButtonDow = if(stato)   MaterialTheme.colors.primary else MaterialTheme.colors.primary.copy(alpha = 0.3f)
-
+    val colorButtonMy = if(!stato)   MaterialTheme.colors.primary else MaterialTheme.colors.primary.copy(alpha = 0.35f)
+    val colorButtonDow = if(stato)   MaterialTheme.colors.primary else MaterialTheme.colors.primary.copy(alpha = 0.35f)
 
     Scaffold (
         topBar = { TopBarSec("Tracciati",navController) },
-
             ){
         LazyColumn(modifier = Modifier
             .fillMaxSize()

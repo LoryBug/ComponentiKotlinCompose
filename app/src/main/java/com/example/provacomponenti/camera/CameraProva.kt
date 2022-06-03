@@ -1,11 +1,8 @@
 package com.example.provacomponenti.camera
 
 
-import android.Manifest
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
-import android.provider.Settings
 import android.util.Log
 import android.view.ViewGroup
 import androidx.camera.core.*
@@ -30,19 +27,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
-import com.example.provacomponenti.R
-
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import kotlinx.coroutines.Dispatchers
 import java.io.File
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.security.acl.Permission
 import java.util.concurrent.Executor
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -136,6 +129,7 @@ fun CapturePictureButton(
     val isPressed by interactionSource.collectIsPressedAsState()
     val color = if (isPressed) Color.Blue else Color.Black
     val contentPadding = PaddingValues(if (isPressed) 8.dp else 12.dp)
+
     OutlinedButton(
         modifier = modifier,
         shape = CircleShape,
@@ -155,7 +149,7 @@ fun CapturePictureButton(
             interactionSource = interactionSource,
             onClick = onClick
         ) {
-            // No content
+
         }
     }
 }
@@ -171,6 +165,7 @@ fun CameraCapture(
     val context = LocalContext.current
 
     Box(modifier = modifier) {
+
         val lifecycleOwner = LocalLifecycleOwner.current
         val coroutineScope = rememberCoroutineScope()
         var previewUseCase by remember { mutableStateOf<UseCase>(Preview.Builder().build()) }
@@ -181,7 +176,6 @@ fun CameraCapture(
                     .build()
             )
         }
-
         Box(modifier = Modifier.fillMaxHeight(0.93f)) {
             CameraPreview(
                 modifier = Modifier.fillMaxSize(),
@@ -189,7 +183,6 @@ fun CameraCapture(
                     previewUseCase = it
                 }
             )
-
             CapturePictureButton(
                 modifier = Modifier
                     .size(100.dp)
@@ -203,7 +196,6 @@ fun CameraCapture(
                     }
                 }
             )
-
         }
         LaunchedEffect(previewUseCase) {
             val cameraProvider = context.getCameraProvider()
@@ -224,6 +216,7 @@ suspend fun ImageCapture.takePicture(executor: Executor): File {
     val photoFile = withContext(Dispatchers.IO) {
         kotlin.runCatching {
             File.createTempFile("image", "jpg")
+
         }.getOrElse { ex ->
             Log.e("TakePicture", "Failed to create temporary file", ex)
             File("/dev/null")

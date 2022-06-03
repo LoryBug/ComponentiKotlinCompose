@@ -72,4 +72,9 @@ fun TopBarCamera(navController: NavController) {
             }
         })
 }
+fun GetImageUrl() : String? {
+    var image : String? = null
+
+    return image
+}
 
