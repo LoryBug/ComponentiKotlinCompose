@@ -10,12 +10,14 @@ import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -28,6 +30,7 @@ import com.example.provacomponenti.Database.Motor
 import com.example.provacomponenti.Database.MotorEvent
 import com.example.provacomponenti.Database.MotorViewModel
 import com.example.provacomponenti.Database.TrackViewModel
+import com.example.provacomponenti.R
 import com.example.provacomponenti.camera.CameraPreview
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
@@ -253,6 +256,8 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 },
 
                 )
+            Spacer(modifier = Modifier.height(12.dp))
+           
             Button(onClick = {
                 cameraPermissionState.launchPermissionRequest()
                 if(cameraPermissionState.hasPermission){
@@ -260,7 +265,14 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 }
 
             }) {
-                Text("camera permessi")
+                Row(modifier = Modifier.fillMaxWidth(0.4f), verticalAlignment = Alignment.CenterVertically,horizontalArrangement = Arrangement.SpaceBetween) {
+                    Icon(painterResource(id = R.drawable.ic_baseline_photo_camera_24), contentDescription = "")
+                    Text("Aggiungi una foto")
+
+                }
+
+
+
             }
 
 
@@ -287,7 +299,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 },
                 colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary)
             ) {
-                Text(text = "Assicurazione", color = Color.White)
+                Text(text = "Assicurazione: ", color = Color.White)
                 Text(
                     text = " ${mDateInsurance.value}",
                     color = Color.White,
@@ -300,7 +312,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 mDatePickerDialogTax.show()
             }, colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary))
             {
-                Text(text = "Bollo:")
+                Text(text = "Bollo: ")
                 Text(text = "${mDateTax.value}", fontSize = 24.sp, textAlign = TextAlign.Center)
             }
             Spacer(modifier = Modifier.height(12.dp))
@@ -316,7 +328,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
         OutlinedButton(
             onClick = { expanded = !expanded }
         ) {
-            Text(if (expanded) "-" else "+")
+            Text(if (expanded) "-" else "+", color = MaterialTheme.colors.onSurface)
         }
         Spacer(modifier = Modifier.height(12.dp))
     }

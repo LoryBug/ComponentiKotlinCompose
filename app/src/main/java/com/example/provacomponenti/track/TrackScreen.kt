@@ -57,6 +57,9 @@ fun TrackScreen(navController: NavController, trackViewModel: TrackViewModel){
                     CardPosTracks(track = it)
                 }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
+                item{
+                    CardNewTrack(trackViewModel)
+                }
 
             } else
             {

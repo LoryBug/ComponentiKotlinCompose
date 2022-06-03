@@ -86,7 +86,7 @@ private fun ExpCardMotor(motor: Motor) {
         OutlinedButton(
             onClick = { expanded = !expanded }
         ) {
-            Text(if (expanded) "Show less" else "Show more")
+            Text(if (expanded) "Show less" else "Show more",color = MaterialTheme.colors.onSurface)
         }
     }
 }

@@ -17,10 +17,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -33,9 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
+import com.example.provacomponenti.R
 
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import kotlinx.coroutines.Dispatchers
@@ -140,7 +139,7 @@ fun CapturePictureButton(
     OutlinedButton(
         modifier = modifier,
         shape = CircleShape,
-        border = BorderStroke(2.dp, Color.Black),
+        border = BorderStroke(2.dp, MaterialTheme.colors.surface),
         contentPadding = contentPadding,
         colors = ButtonDefaults.outlinedButtonColors(contentColor = Color.Black),
         onClick = { /* GNDN */ },
@@ -182,18 +181,20 @@ fun CameraCapture(
                     .build()
             )
         }
-        Box {
+
+        Box(modifier = Modifier.fillMaxHeight(0.93f)) {
             CameraPreview(
                 modifier = Modifier.fillMaxSize(),
                 onUseCase = {
                     previewUseCase = it
                 }
             )
+
             CapturePictureButton(
                 modifier = Modifier
                     .size(100.dp)
-                    .padding(16.dp)
-                    .align(Alignment.BottomCenter),
+                    .align(Alignment.BottomCenter)
+                    .padding(16.dp),
                 onClick = {
                     coroutineScope.launch {
                         imageCaptureUseCase.takePicture(context.executor).let {
@@ -202,6 +203,7 @@ fun CameraCapture(
                     }
                 }
             )
+
         }
         LaunchedEffect(previewUseCase) {
             val cameraProvider = context.getCameraProvider()
