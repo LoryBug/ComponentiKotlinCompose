@@ -153,8 +153,6 @@ private fun ExpCardNewTrack(trackViewModel: TrackViewModel) {
                 )
 
             var traccia = Track(id.text,name.text,km.text,description.text,typoOfTrack.text,"")
-
-            Text(traccia.toString())
             Spacer(modifier = Modifier.height(12.dp))
             OutlinedButton(
                 onClick = {

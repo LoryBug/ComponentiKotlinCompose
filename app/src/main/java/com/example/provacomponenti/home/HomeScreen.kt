@@ -59,7 +59,7 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,na
                                 modifier = Modifier.padding(4.dp)
                             )
                             Text(
-                                "Su MotorTracks potrai gestire tutte le tue tracce gps preferite e scaricare le più usate sul web," +
+                                "Su MotorTracks potrai gestire tutte le tue tracce gps preferite e utilizzare quelle messe a disposizione dalla community," +
                                         " inoltre potrai tenere sotto controllo le stato delle tue moto.",
                                 style = MaterialTheme.typography.body1,
                                 textAlign = TextAlign.Justify,

@@ -45,7 +45,7 @@ fun TrackScreen(navController: NavController, trackViewModel: TrackViewModel){
                         Text("Le mie tracce")
                     }
                     Button(onClick = { stato = false}, colors = ButtonDefaults.buttonColors(backgroundColor = colorButtonDow),modifier = Modifier.padding(2.dp)) {
-                        Text("Scaricabili")
+                        Text("Community")
                     }
                 }
             }
