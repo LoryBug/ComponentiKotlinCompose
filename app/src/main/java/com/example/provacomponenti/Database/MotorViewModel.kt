@@ -24,6 +24,9 @@ constructor(
 
     private val repository: MotorRepository = MotorRepository(motorDAO)
 
+
+    var powerMoto: String? = null
+    var powerMotoModel: String? = null
     var insuranceMotor: String? = null
     var insuranceDate: String? = null
     var taxMotor : String? = null
@@ -50,6 +53,9 @@ constructor(
                     is MotorEvent.GetExpiringTaxMoto -> {
                         getExpTaxMoto()
                     }
+                    is MotorEvent.GetPowerMoto ->{
+                        getPowerMoto()
+                    }
                 }
             } catch (e : Exception){
                 Log.e("Errore",e.message.toString())
@@ -70,11 +76,16 @@ constructor(
     }
     private suspend fun getExpTaxMoto(){
 
-        taxMotor = repository.getAllMotors().minByOrNull {
+        taxMotor = repository.getAllMotors().maxByOrNull {
             it.taxExpire!!
         }?.model
-        taxDate = repository.getAllMotors().minByOrNull {
+        taxDate = repository.getAllMotors().maxByOrNull {
             it.taxExpire!!
         }?.taxExpire
+    }
+    private suspend fun getPowerMoto(){
+        powerMoto = repository.getAllMotors().minByOrNull { it.hp!! }?.hp
+        powerMotoModel = repository.getAllMotors().minByOrNull { it.hp!! }?.model
+
     }
 }

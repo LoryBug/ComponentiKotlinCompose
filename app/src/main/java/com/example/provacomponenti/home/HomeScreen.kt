@@ -76,9 +76,11 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,na
 
                 item { Spacer(modifier = Modifier.height(24.dp)) }
                 //--------------------fine sezione notizie---------------------------------------//
+
+                //--------------------Sezione moto in manutenzion--------------------------------//
                 item {
                     Text(
-                        text = "Moto in manutenzione",
+                        text = "Overview Moto",
                         style = MaterialTheme.typography.h5
                     )
                 }
@@ -173,6 +175,7 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,na
                         item {
                             Spacer(modifier = Modifier.width(8.dp))
                         }
+
                         item {
                             Surface(
                                 color = MaterialTheme.colors.background,
@@ -193,15 +196,18 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,na
                                         .padding(12.dp)
                                 ) {
                                     Text(
-                                        "Ultima traccia inserita",
+                                        "Moto più potente",
                                         style = MaterialTheme.typography.subtitle1,
                                         fontWeight = FontWeight.SemiBold
                                     )
-                                    var latestTrack = getLatestTrack(trackViewModel)
+                                    var powerMoto = getPowerMoto(motorViewModel)
+                                    var hpMotoModel = powerMoto[0]
+                                    var hpMoto = powerMoto[1]
                                     Text(
-                                        "$latestTrack",
+                                        "Modello: $hpMotoModel",
                                         style = MaterialTheme.typography.body1
                                     )
+                                    Text("Potenza: $hpMoto hp")
                                 }
                             }
                         }
@@ -212,8 +218,79 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,na
                     }
                 }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
+                //--------------------Fine sezione moto in manutenzione--------------------------------//
+/*
+                item { Text(text = "Tracciati", style = MaterialTheme.typography.h5) }
 
-                item { Text(text = "Suca Suca", style = MaterialTheme.typography.h5) }
+                item {
+                    Surface(
+                        color = MaterialTheme.colors.background,
+                        modifier = Modifier
+                            .padding(top = 12.dp, bottom = 12.dp)
+                            .fillMaxWidth(0.8f)
+                            .border(
+                                2.dp,
+                                MaterialTheme.colors.surface,
+                                shape = MaterialTheme.shapes.medium
+                            ),
+                        shape = MaterialTheme.shapes.medium,
+                        elevation = 4.dp
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                "Ultima traccia inserita",
+                                style = MaterialTheme.typography.subtitle1,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                            var latestTrack = getLatestTrack(trackViewModel)
+                            Text(
+                                "$latestTrack",
+                                style = MaterialTheme.typography.body1
+                            )
+                        }
+                    }
+
+                }
+                item{ Spacer(modifier = Modifier.height(12.dp) )}
+                item {
+                    Surface(
+                        color = MaterialTheme.colors.background,
+                        modifier = Modifier
+                            .padding(top = 12.dp, bottom = 12.dp)
+                            .fillMaxWidth(0.8f)
+                            .border(
+                                2.dp,
+                                MaterialTheme.colors.surface,
+                                shape = MaterialTheme.shapes.medium
+                            ),
+                        shape = MaterialTheme.shapes.medium,
+                        elevation = 4.dp
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally
+                        ) {
+                            Text(
+                                "Traccia più corta",
+                                style = MaterialTheme.typography.subtitle1,
+                                fontWeight = FontWeight.SemiBold
+                            )
+                            var shortTrack = getShortestTrack(trackViewModel)
+                            Text(
+                                "$shortTrack",
+                                style = MaterialTheme.typography.body1
+                            )
+                        }
+                    }
+
+                }*/
 
                 item {
                     Surface(
@@ -269,11 +346,17 @@ fun getExpiringTaxMoto(motorViewModel: MotorViewModel): List<String?> {
     var b = listOf(motorViewModel.taxMotor, motorViewModel.taxDate)
     return b
 }
+
+fun getPowerMoto(motorViewModel: MotorViewModel): List<String?> {
+    motorViewModel.onTriggerEvent(MotorEvent.GetPowerMoto)
+    var c = listOf(motorViewModel.powerMotoModel,motorViewModel.powerMoto)
+    return  c
+}
+/*
 fun getLatestTrack(trackViewModel: TrackViewModel) : String?{
     trackViewModel.onTriggerEvent(TrackEvent.GetLatestTrack)
     return trackViewModel.lastTrack
-}
-
+}*/
 
 
 

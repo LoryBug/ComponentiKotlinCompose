@@ -7,4 +7,5 @@ sealed class MotorEvent{
     object GetAllMoto : MotorEvent()
     object GetExpiringTaxMoto : MotorEvent()
     object GetExpiringInsMoto : MotorEvent()
+    object GetPowerMoto : MotorEvent()
 }

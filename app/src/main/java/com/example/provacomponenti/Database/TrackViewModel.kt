@@ -20,6 +20,8 @@ constructor(
 
     var lastTrack: String? = null
 
+    var shortestTrack : String? = null
+
     private val repository: TrackRepository
 
     var track: Track? = null
@@ -41,9 +43,6 @@ constructor(
                     is TrackEvent.GetAllTrack -> {
                         allTrack.addAll(repository.getAllTrack())
                     }
-                    is TrackEvent.GetLatestTrack ->{
-                        getLatestTrack()
-                    }
                 }
 
             } catch (e : Exception){
@@ -55,12 +54,16 @@ constructor(
 
     private suspend fun addTrack(track: Track) {
         repository.addTrack(track)
+        allTrack.add(track)
     }
 
     private suspend fun getLatestTrack(){
         lastTrack = repository.getAllTrack().minByOrNull {
             it.name!!
         }?.name
+    }
+    private suspend fun  getShortestTrack(){
+        shortestTrack = repository.getAllTrack().minByOrNull { it.km!! }?.name
     }
 
 }

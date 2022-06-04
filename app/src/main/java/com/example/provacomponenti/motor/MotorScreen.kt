@@ -7,7 +7,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -15,7 +14,6 @@ import androidx.navigation.NavController
 import com.example.provacomponenti.CardPosMotor
 import com.example.provacomponenti.commonItem.TopBarSec
 import com.example.provacomponenti.Database.*
-import com.example.provacomponenti.commonItem.FabMaps
 
 
 import com.example.provacomponenti.motor.Card.CardAddMoto

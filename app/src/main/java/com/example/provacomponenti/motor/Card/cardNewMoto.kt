@@ -20,6 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
@@ -157,7 +158,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
+                    keyboardType = KeyboardType.Number,
                     imeAction = ImeAction.Next
                 ),
                 label = { Text("Id") },
@@ -171,6 +172,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
+                    capitalization = KeyboardCapitalization.Words,
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
@@ -186,6 +188,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
+                    capitalization = KeyboardCapitalization.Words,
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
@@ -201,7 +204,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
+                    keyboardType = KeyboardType.Number,
                     imeAction = ImeAction.Next
                 ),
                 label = { Text("Cilindrata") },
@@ -216,6 +219,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
+                    capitalization = KeyboardCapitalization.Words,
                     keyboardType = KeyboardType.Text,
                     imeAction = ImeAction.Next
                 ),
@@ -230,7 +234,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
+                    keyboardType = KeyboardType.Number,
                     imeAction = ImeAction.Next
                 ),
                 label = { Text("Cavalli") },
@@ -244,7 +248,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 maxLines = 1,
                 modifier = Modifier.fillMaxWidth(0.8f),
                 keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Text,
+                    keyboardType = KeyboardType.Number,
                     imeAction = ImeAction.Next
                 ),
                 label = { Text("Kg") },
@@ -336,7 +340,6 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
 }
 
 fun addNewMotor(motorViewModel: MotorViewModel, motor: Motor) {
-
     motorViewModel.onTriggerEvent(MotorEvent.AddMoto(motor))
 }
 
