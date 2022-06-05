@@ -36,7 +36,6 @@ import com.example.provacomponenti.camera.CameraPreview
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 
-import com.google.gson.Gson
 import java.util.*
 
 

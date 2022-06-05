@@ -12,8 +12,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.provacomponenti.commonItem.TopBarSec
 import com.example.provacomponenti.Database.favPlaceList
-import com.example.provacomponenti.commonItem.FabMaps
-import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.*
