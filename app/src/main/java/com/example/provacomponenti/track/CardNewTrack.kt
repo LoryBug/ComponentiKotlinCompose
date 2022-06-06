@@ -134,7 +134,7 @@ private fun ExpCardNewTrack(trackViewModel: TrackViewModel) {
                 onValueChange = {
                     description = it
                 },
-                )
+                ) //creare lista con image
             OutlinedTextField(
                 value = typoOfTrack,
                 maxLines = 1,

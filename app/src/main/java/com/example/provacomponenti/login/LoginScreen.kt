@@ -16,7 +16,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 
-const val user : String = "Lorenzo"
+var user : String? = null
+
 @Composable
 fun Login(onLoginSuccess: () -> Unit) {
     Scaffold() {
@@ -114,6 +115,7 @@ fun Login(onLoginSuccess: () -> Unit) {
                             placeholder = { Text("username") },
                             onValueChange = {
                                 username = it
+                                user = username.text
                             },
                             interactionSource = usernameInteractionState,
                             )

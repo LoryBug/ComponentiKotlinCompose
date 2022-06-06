@@ -1,6 +1,5 @@
 package com.example.provacomponenti.track
 
-import android.Manifest
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -13,14 +12,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.provacomponenti.commonItem.TopBarSec
 import com.example.provacomponenti.Database.TrackViewModel
+import com.example.provacomponenti.Database.trackStatic
 import com.example.provacomponenti.Database.tracks
-import com.example.provacomponenti.camera.CameraPreview
-import com.example.provacomponenti.commonItem.FabMaps
-import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
+import com.example.provacomponenti.commonItem.TopBarSec
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.rememberPermissionState
 
 
 @OptIn(ExperimentalPermissionsApi::class)
@@ -62,8 +58,8 @@ fun TrackScreen(navController: NavController, trackViewModel: TrackViewModel){
             } else
             {
                 item { Spacer(modifier = Modifier.height(12.dp)) }
-                for (track in tracks) {
-                    item { track.name?.let { CardPosTracks(track) } }
+                for (track in trackStatic) {
+                    item { track.name?.let { CardPosTracksStatic(track) } }
                     item { Spacer(modifier = Modifier.height(12.dp)) }
                 }
             }

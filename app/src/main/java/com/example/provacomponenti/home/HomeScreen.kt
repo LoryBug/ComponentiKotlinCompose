@@ -69,13 +69,7 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,na
                     }
                 }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
-                //--------------------sezione notizie---------------------------------------//
-                item { Text(text = "Notizie", style = MaterialTheme.typography.h4) }
-                item { Spacer(modifier = Modifier.height(12.dp)) }
-                item { SwipeCardAnimation() }
 
-                item { Spacer(modifier = Modifier.height(24.dp)) }
-                //--------------------fine sezione notizie---------------------------------------//
 
                 //--------------------Sezione moto in manutenzion--------------------------------//
                 item {
@@ -218,118 +212,14 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,na
                     }
                 }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
-                //--------------------Fine sezione moto in manutenzione--------------------------------//
-/*
-                item { Text(text = "Tracciati", style = MaterialTheme.typography.h5) }
+                //--------------------sezione notizie---------------------------------------//
+                item { Text(text = "Notizie", style = MaterialTheme.typography.h5) }
+                item { Spacer(modifier = Modifier.height(12.dp)) }
+                item { SwipeCardAnimation() }
 
-                item {
-                    Surface(
-                        color = MaterialTheme.colors.background,
-                        modifier = Modifier
-                            .padding(top = 12.dp, bottom = 12.dp)
-                            .fillMaxWidth(0.8f)
-                            .border(
-                                2.dp,
-                                MaterialTheme.colors.surface,
-                                shape = MaterialTheme.shapes.medium
-                            ),
-                        shape = MaterialTheme.shapes.medium,
-                        elevation = 4.dp
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(12.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                "Ultima traccia inserita",
-                                style = MaterialTheme.typography.subtitle1,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                            var latestTrack = getLatestTrack(trackViewModel)
-                            Text(
-                                "$latestTrack",
-                                style = MaterialTheme.typography.body1
-                            )
-                        }
-                    }
+                item { Spacer(modifier = Modifier.height(24.dp)) }
+                //--------------------fine sezione notizie---------------------------------------//
 
-                }
-                item{ Spacer(modifier = Modifier.height(12.dp) )}
-                item {
-                    Surface(
-                        color = MaterialTheme.colors.background,
-                        modifier = Modifier
-                            .padding(top = 12.dp, bottom = 12.dp)
-                            .fillMaxWidth(0.8f)
-                            .border(
-                                2.dp,
-                                MaterialTheme.colors.surface,
-                                shape = MaterialTheme.shapes.medium
-                            ),
-                        shape = MaterialTheme.shapes.medium,
-                        elevation = 4.dp
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(12.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                "Traccia più corta",
-                                style = MaterialTheme.typography.subtitle1,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                            var shortTrack = getShortestTrack(trackViewModel)
-                            Text(
-                                "$shortTrack",
-                                style = MaterialTheme.typography.body1
-                            )
-                        }
-                    }
-
-                }*/
-
-                item {
-                    Surface(
-
-                        modifier = Modifier
-                            .padding(top = 12.dp)
-                            .fillMaxWidth(0.8f),
-                        shape = MaterialTheme.shapes.medium,
-                        elevation = 4.dp
-                    ) {
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(12.dp),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            Text(
-                                "Notizie",
-                                style = MaterialTheme.typography.subtitle1,
-                                fontWeight = FontWeight.SemiBold
-                            )
-                            Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a condimentum nunc," +
-                                        " a sollicitudin quam. Vestibulum ante ipsum primis in faucibus orci luctus et " +
-                                        "ultrices posuere cubilia curae; Mauris accumsan vitae leo non pharetra. Orci varius " +
-                                        "natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus" +
-                                        " in eros mauris. Ut id est vitae arcu sodales blandit. In iaculis nisl et erat " +
-                                        "egestas, quis dapibus arcu sagittis. Sed rutrum est sit amet porta dictum." +
-                                        " Aliquam hendrerit euismod dolor, id interdum leo cursus ut. Donec pellentesque accumsan " +
-                                        "magna vel vehicula. Maecenas nec libero fermentum, pellentesque tortor vel," +
-                                        " mattis mauri",
-                                style = MaterialTheme.typography.body1
-                            )
-
-                        }
-
-
-                    }
-                }
                 item { Spacer(modifier = Modifier.height(90.dp)) }
             }
         })
