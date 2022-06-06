@@ -33,6 +33,7 @@ import com.example.provacomponenti.Database.MotorViewModel
 import com.example.provacomponenti.Database.TrackViewModel
 import com.example.provacomponenti.R
 import com.example.provacomponenti.camera.CameraPreview
+import com.example.provacomponenti.camera.imageUri
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 
@@ -129,7 +130,8 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
         cilindrata.text,
         typoOfMoto.text,
         hp.text,
-        kg.text, mDateInsurance.value, mDateTax.value, imgUrl.text
+        kg.text, mDateInsurance.value, mDateTax.value,
+        imageUri.toString()
     )
 
     Column(
@@ -152,6 +154,28 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
         )
         Spacer(modifier = Modifier.height(12.dp))
         if (expanded) {
+            Spacer(modifier = Modifier.height(12.dp))
+            Button(onClick = {
+                cameraPermissionState.launchPermissionRequest()
+                if (cameraPermissionState.hasPermission) {
+                    navController.navigate("camera")
+                }
+            }) {
+
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(0.4f),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Icon(
+                        painterResource(id = R.drawable.ic_baseline_photo_camera_24),
+                        contentDescription = ""
+                    )
+
+                    Text("Aggiungi una foto")
+                }
+            }
             OutlinedTextField(
                 value = id,
                 maxLines = 1,
@@ -257,24 +281,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
                 },
             )
             Spacer(modifier = Modifier.height(12.dp))
-            Button(onClick = {
-                cameraPermissionState.launchPermissionRequest()
-                if (cameraPermissionState.hasPermission) {
-                    navController.navigate("camera")
-                }
-            }) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(0.4f),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Icon(
-                        painterResource(id = R.drawable.ic_baseline_photo_camera_24),
-                        contentDescription = ""
-                    )
-                    Text("Aggiungi una foto")
-                }
-            }
+
             /*
             OutlinedTextField(
                 value = imgUrl,

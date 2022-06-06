@@ -5,11 +5,16 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
@@ -28,7 +33,6 @@ fun CardPosMotor(motor: Motor) {
         ExpCardMotor(motor)
     }
 }
-
 //----------------------------------Contenuto card espandibili---------------------------------------//
 @Composable
 private fun ExpCardMotor(motor: Motor) {
@@ -77,16 +81,13 @@ private fun ExpCardMotor(motor: Motor) {
                     motor.typeOfMoto?.let { Text(it) }
                     motor.insuranceExpire?.let { Text("Assicurazione: $it") }
                     motor.taxExpire?.let { Text("Bollo: $it") }
-                    /*motor.typeOfMoto?.let { Text("$it") }
-                    motor.typeOfMoto?.let { Text("$it") }*/
                 }
-
             }
         }
         OutlinedButton(
             onClick = { expanded = !expanded }
         ) {
-            Text(if (expanded) "Show less" else "Show more",color = MaterialTheme.colors.onSurface)
+            Text(if (expanded) "Show less" else "Show more", color = MaterialTheme.colors.onSurface)
         }
     }
 }
