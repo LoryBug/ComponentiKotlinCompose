@@ -19,7 +19,6 @@ class MotorViewModel
 constructor(
     motorDAO: MotorDAO
 ) : ViewModel() {
-     //val allMotor = mutableStateListOf<Motor>()
      val allMotor = mutableListOf<Motor>()
 
     private val repository: MotorRepository = MotorRepository(motorDAO)

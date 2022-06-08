@@ -72,8 +72,8 @@ private fun ExpCardMotor(motor: Motor) {
                         modifier = Modifier.clip(RoundedCornerShape(5.dp)),
                         model = motor.imageURL,
                         contentDescription = "",
-                        contentScale = ContentScale.FillBounds,
                     )
+                    Spacer(modifier = Modifier.height(4.dp))
                     motor.brand?.let { Text("Marca: $it") }
                     motor.displacement?.let { Text("Cilindrata: $it") }
                     motor.hp?.let { Text("Potenza: $it Hp") }

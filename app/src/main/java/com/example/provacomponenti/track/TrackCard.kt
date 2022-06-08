@@ -112,23 +112,21 @@ private fun ExpCardTrackStatic(track: TrackStatic) {
                 )
             }
             if (expanded) {
-                track.imageRes?.let { painterResource(id = it) }
-                    ?.let {
-                        Image(
-                            painter = it, contentDescription = "",
-                            modifier = Modifier.clip(
-                                RoundedCornerShape(5.dp)
-                            ),
-                            contentScale = ContentScale.FillBounds
-                        )
-                    }
 
-                /*AsyncImage(
-                    model = track.imageURL?.toInt(), contentDescription = "",
-                    modifier = Modifier.clip(RoundedCornerShape(5.dp)),
-                    contentScale = ContentScale.FillBounds
-                )*/
+
                 Column() {
+                    Spacer(modifier = Modifier.height(4.dp))
+                    track.imageRes?.let { painterResource(id = it) }
+                        ?.let {
+                            Image(
+                                painter = it, contentDescription = "",
+                                modifier = Modifier.clip(
+                                    RoundedCornerShape(5.dp)
+                                ),
+
+                                )
+                        }
+                    Spacer(modifier = Modifier.height(4.dp))
                     track.km?.let { Text("$it Km") }
                     track.description?.let { Text(it) }
                     track.typeOfTrack?.let { Text("Tipo di traccia: $it") }
