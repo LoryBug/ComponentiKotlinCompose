@@ -6,7 +6,7 @@ data class FavouritePlace(
     val title : String?
 )
 
-var favPlaceList = listOf(
+var favPlaceList = mutableListOf(
     FavouritePlace(
         44.255570846189435, 12.363348295993113, "Fantini Club"
     ),

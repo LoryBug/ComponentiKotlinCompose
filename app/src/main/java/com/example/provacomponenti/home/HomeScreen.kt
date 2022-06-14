@@ -24,6 +24,8 @@ import com.example.provacomponenti.home.bottomBar.BottomNavigationBar
 import com.example.provacomponenti.home.topBar.TopBar
 import com.example.provacomponenti.login.user
 import com.example.provacomponenti.newsAnimation.SwipeCardAnimation
+import com.example.provacomponenti.userLocLatitude
+import com.example.provacomponenti.userLocLongitude
 
 @Composable
 fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,navController:NavController) {
@@ -69,6 +71,8 @@ fun HomeScreen(motorViewModel: MotorViewModel, trackViewModel: TrackViewModel,na
                     }
                 }
                 item { Spacer(modifier = Modifier.height(12.dp)) }
+
+
 
 
                 //--------------------Sezione moto in manutenzion--------------------------------//
