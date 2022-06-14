@@ -12,10 +12,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.provacomponenti.commonItem.TopBarSec
 import com.example.provacomponenti.Database.favPlaceList
+import com.example.provacomponenti.R
+import com.example.provacomponenti.login.user
 import com.example.provacomponenti.userLocLatitude
 import com.example.provacomponenti.userLocLongitude
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
+import com.google.android.gms.maps.model.BitmapDescriptor
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.*
@@ -36,7 +38,7 @@ fun MapsScreen(navController: NavController) {
     val myPos = userLocLatitude?.let { userLocLongitude?.let { it1 -> LatLng(it, it1) } }
 
 
-    val cesena = LatLng(44.14837871007344, 12.235793867040725)
+
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(myPos!!, 14f)
     }
@@ -119,7 +121,8 @@ fun GoogleMapView(
             myPos?.let { MarkerState(position = it, ) }?.let {
                 Marker(
                     state = it,
-                    title = "lori"
+                    title = user,
+
                 )
             }
         }
