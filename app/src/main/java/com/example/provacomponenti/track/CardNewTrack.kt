@@ -157,6 +157,7 @@ private fun ExpCardNewTrack(trackViewModel: TrackViewModel) {
             OutlinedButton(
                 onClick = {
                     addNewTrack(trackViewModel,traccia)
+                    expanded = !expanded
                 }
             ) {
                 Text("Aggiungi",color = MaterialTheme.colors.onSurface)

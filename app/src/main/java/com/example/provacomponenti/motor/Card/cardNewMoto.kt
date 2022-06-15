@@ -325,6 +325,7 @@ fun AddMoto(motorViewModel: MotorViewModel, navController: NavController) {
             Button(
                 onClick = {
                     addNewMotor(motorViewModel, actMotor)
+                    expanded= !expanded
                 },
             ) {
                 Text("Aggiungi")
