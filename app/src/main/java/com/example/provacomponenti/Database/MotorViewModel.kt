@@ -82,8 +82,9 @@ constructor(
             it.taxExpire!!
         }?.taxExpire
     }
+
     private suspend fun getPowerMoto(){
-        powerMoto = repository.getAllMotors().minByOrNull { it.hp!! }?.hp
+        powerMoto = repository.getAllMotors().minByOrNull {it.hp!! }?.hp
         powerMotoModel = repository.getAllMotors().minByOrNull { it.hp!! }?.model
 
     }
