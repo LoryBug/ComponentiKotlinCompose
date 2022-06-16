@@ -179,4 +179,4 @@ fun Login(onLoginSuccess: () -> Unit) {
 
 }
 fun invalidInput(email: String, password: String) =
-    email.isBlank() || password.isBlank() //|| email != "Lorenzo" || password != "honda"
+    email.isBlank() || password.isBlank() /*|| email != "Lorenzo" */|| password != "honda"
