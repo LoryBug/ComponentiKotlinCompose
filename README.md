@@ -1,6 +1,6 @@
 # Jetpack Compose Mobile Application
 
-###Tecnologie e librerie utilizzate
+### Tecnologie e librerie utilizzate
 - Kotlin 
 - Jetpack Compose 
 - Room
